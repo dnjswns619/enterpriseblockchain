@@ -1,0 +1,73 @@
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  padding: 0 100px;
+  visibility: hidden;
+  .logo {
+    a{
+      display: block;
+      transition: filter .5s;
+      padding: 17px 0;
+      filter: invert(1);
+      img{
+        width: 100px;
+      }
+    }
+  }
+  .gnb__list{
+    display: flex;
+    align-items: center;
+    &--item{
+      position: relative;
+      transition: color .5s;
+      font-size: 18px;
+      font-weight: 600;
+      color: #000;
+      line-height: 1;
+      & > a{
+        padding: 23px 25px;
+      }
+      .btn-lang{
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 23px 0 23px 25px;
+        svg{
+          filter: invert(1);
+          transition: filter .5s;
+        }
+      }
+      .lang-list {
+        display: none;
+        position: absolute;
+        top: 55px;
+        right: 0;
+        background-color: #000;
+        border: 1px solid #5a5a5a;
+        border-radius: 6px;
+        a {
+          opacity: 0.2;
+          display: block;
+          padding: 6px 13px;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+.dark .header .gnb-item,
+.header.on .gnb-item{
+    color:#fff;
+    transition: color .5s;
+}
+.dark .header .gnb-item .btn-lang svg,
+.header.on .gnb-item .btn-lang svg{
+    filter: invert(0);
+    transition: filter .5s;
+}
