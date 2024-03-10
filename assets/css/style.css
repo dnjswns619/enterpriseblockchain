@@ -196,24 +196,24 @@ body {
   --background-color: rgba(0, 0, 0, 0) ;
 }
 
-#section--main .cont-wrap {
+#section--main .mainCont {
   position: relative;
   width: 100%;
   height: 600vh;
 }
-#section--main .cont-wrap .dataCont {
+#section--main .mainCont--wrap {
   position: sticky;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
 }
-#section--main .cont-wrap .dataCont video {
+#section--main .mainCont--wrap video {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-#section--main .cont-wrap .dataCont .text {
+#section--main .mainCont--wrap .text {
   opacity: 0;
   position: absolute;
   top: 50%;
@@ -222,10 +222,10 @@ body {
   font-size: 52px;
   color: #fff;
 }
-#section--main .cont-wrap .dataCont .text.small {
+#section--main .mainCont--wrap .text.small {
   font-size: 1.5rem;
 }
-#section--main .cont-wrap .dataCont::before {
+#section--main .mainCont--wrap::before {
   content: "";
   position: absolute;
   top: 0;
@@ -234,7 +234,7 @@ body {
   height: 100%;
   background-color: var(--background-color);
 }
-#section--main .cont-wrap .dataCont .ic-arrow {
+#section--main .mainCont--wrap .ic-arrow {
   position: absolute;
   left: 50%;
   bottom: 50px;
