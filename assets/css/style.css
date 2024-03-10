@@ -100,6 +100,11 @@ body {
   transition: background 0.5s;
 }
 
+body {
+  font-family: "Archivo,NotoSansCJKkr";
+  font-weight: bold;
+}
+
 #contianer {
   width: 100%;
 }
@@ -175,19 +180,63 @@ body {
   color: #fff;
 }
 
-.dark .header .gnb-item,
-.header.on .gnb-item {
+.dark .header .gnb__list--item,
+.header.on .gnb__list--item {
   color: #fff;
   transition: color 0.5s;
 }
 
-.dark .header .gnb-item .btn-lang svg,
-.header.on .gnb-item .btn-lang svg {
+.dark .header .gnb__list--item .btn-lang svg,
+.header.on .gnb__list--item .btn-lang svg {
   filter: invert(0);
   transition: filter 0.5s;
 }
 
-.section--main {
+:root {
+  --background-color: rgba(0, 0, 0, 0) ;
+}
+
+#section--main .cont-wrap {
+  position: relative;
   width: 100%;
-  height: 800vh;
+  height: 600vh;
+}
+#section--main .cont-wrap .dataCont {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+#section--main .cont-wrap .dataCont video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#section--main .cont-wrap .dataCont .text {
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 52px;
+  color: #fff;
+}
+#section--main .cont-wrap .dataCont .text.small {
+  font-size: 1.5rem;
+}
+#section--main .cont-wrap .dataCont::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-color);
+}
+#section--main .cont-wrap .dataCont .ic-arrow {
+  position: absolute;
+  left: 50%;
+  bottom: 50px;
+  transform: translateX(-50%);
 }
