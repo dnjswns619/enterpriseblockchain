@@ -61,13 +61,13 @@
     }
   }
 }
-.dark .header .gnb-item,
-.header.on .gnb-item{
+.dark .header .gnb__list--item,
+.header.on .gnb__list--item{
     color:#fff;
     transition: color .5s;
 }
-.dark .header .gnb-item .btn-lang svg,
-.header.on .gnb-item .btn-lang svg{
+.dark .header .gnb__list--item .btn-lang svg,
+.header.on .gnb__list--item .btn-lang svg{
     filter: invert(0);
     transition: filter .5s;
 }
