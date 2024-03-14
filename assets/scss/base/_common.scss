@@ -1,9 +1,18 @@
+:root {
+  --background-color: rgba(0, 0, 0, 0)
+}
 body {
   font-family: 'Archivo,NotoSansCJKkr';
   font-weight: bold;
 }
 #contianer {
   width: 100%;
+}
+.text {
+  font-size: 52px;
+  &.small {
+    font-size: 1.5rem;
+  }
 }
 .blind{
   overflow: hidden;

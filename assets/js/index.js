@@ -9,9 +9,9 @@ gsap.ticker.add((time)=>{
 gsap.ticker.lagSmoothing(0)
 
 // header 활성화
-const sectionMain = document.querySelector(".mainCont");
+const sectionMain = document.querySelector(".mainCont--wrap");
 ScrollTrigger.create({
-  trigger: ".mainCont",
+  trigger: ".mainCont--wrap",
   start: "top top",
   // markers: true,
   onEnter: () => {
@@ -22,7 +22,7 @@ ScrollTrigger.create({
 // section--main 스크롤 이펙트
 const mainSection = gsap.timeline({
   scrollTrigger: {
-    trigger: ".mainCont",
+    trigger: ".mainCont--wrap",
     start: "top top",
     end: "100% 100%",
     markers: true,
@@ -33,15 +33,17 @@ const mainSection = gsap.timeline({
 })
 mainSection
 .set(".header", {yPercent: -100})
-.to(".mainCont", {"--background-color": "rgba(0, 0, 0, .6)"}, "a")
-.to(".mainCont .text:nth-of-type(1)", {autoAlpha: 1}, "a")
+.to(".mainCont--wrap", {"--background-color": "rgba(0, 0, 0, .6)"}, "a")
+.to(".mainCont--wrap .text:nth-of-type(1)", {autoAlpha: 1}, "a")
 .to(".header", {yPercent: 0, visibility: "visible"}, "a")
-.to(".mainCont .text:nth-of-type(1)", {autoAlpha: 0})
-.to(".mainCont .text:nth-of-type(2)", {autoAlpha: 1})
-.to(".mainCont .text:nth-of-type(2)", {autoAlpha: 0})
-.to(".mainCont .text:nth-of-type(3)", {autoAlpha: 1})
-.to(".mainCont .text:nth-of-type(3)", {autoAlpha: 0})
-.to(".mainCont .text:nth-of-type(4)", {autoAlpha: 1})
+.to(".mainCont--wrap .text:nth-of-type(1)", {autoAlpha: 0})
+.to(".mainCont--wrap .text:nth-of-type(2)", {autoAlpha: 1})
+.to(".mainCont--wrap .text:nth-of-type(2)", {autoAlpha: 0})
+.to(".mainCont--wrap .text:nth-of-type(3)", {autoAlpha: 1})
+.to(".mainCont--wrap .text:nth-of-type(3)", {autoAlpha: 0})
+.to(".mainCont--wrap .text:nth-of-type(4)", {autoAlpha: 1})
 .to(".ic-arrow", {autoAlpha: 0})
+
+// section--keyword
 
 
