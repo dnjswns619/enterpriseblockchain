@@ -25,25 +25,42 @@ const mainSection = gsap.timeline({
     trigger: ".mainCont--wrap",
     start: "top top",
     end: "100% 100%",
-    markers: true,
-    // pin: true,
+    // markers: true,
     scrub: 1
   },
   ease: "none"
 })
 mainSection
 .set(".header", {yPercent: -100})
-.to(".mainCont--wrap", {"--background-color": "rgba(0, 0, 0, .6)"}, "a")
-.to(".mainCont--wrap .text:nth-of-type(1)", {autoAlpha: 1}, "a")
+.to(".mainCont", {"--background-color": "rgba(0, 0, 0, .6)"}, "a")
+.to(".mainCont .text:nth-of-type(1)", {autoAlpha: 1}, "a")
 .to(".header", {yPercent: 0, visibility: "visible"}, "a")
-.to(".mainCont--wrap .text:nth-of-type(1)", {autoAlpha: 0})
-.to(".mainCont--wrap .text:nth-of-type(2)", {autoAlpha: 1})
-.to(".mainCont--wrap .text:nth-of-type(2)", {autoAlpha: 0})
-.to(".mainCont--wrap .text:nth-of-type(3)", {autoAlpha: 1})
-.to(".mainCont--wrap .text:nth-of-type(3)", {autoAlpha: 0})
-.to(".mainCont--wrap .text:nth-of-type(4)", {autoAlpha: 1})
+.to(".mainCont .text:nth-of-type(1)", {autoAlpha: 0})
+.to(".mainCont .text:nth-of-type(2)", {autoAlpha: 1})
+.to(".mainCont .text:nth-of-type(2)", {autoAlpha: 0})
+.to(".mainCont .text:nth-of-type(3)", {autoAlpha: 1})
+.to(".mainCont .text:nth-of-type(3)", {autoAlpha: 0})
+.to(".mainCont .text:nth-of-type(4)", {autoAlpha: 1})
 .to(".ic-arrow", {autoAlpha: 0})
 
 // section--keyword
-
-
+const keywordSection = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".keywordCont--wrap",
+    start: "top top",
+    end: "100% 100%",
+    scrub: "0",
+    markers: true
+  }
+})
+keywordSection
+.to(".keywordCont", {"--background-color": "rgba(0, 0, 0, .6)"}, "b")
+.to(".keywordCont--text", {autoAlpha: 1}, "b")
+.to(".keywordCont--text .text:nth-child(1)", {xPercent: 100}, "c")
+.to(".keywordCont--text .text:nth-child(3)", {xPercent: -100}, "c")
+.to(".keywordCont", {"--background-color": "rgba(0, 0, 0, 0)"}, "d")
+.to(".keywordCont--text", {autoAlpha: 0}, "d")
+.to(".keywordCont--bg .bg1", {yPercent: -100})
+.to(".keywordCont--bg .bg2", {yPercent: -100})
+.to(".keywordCont", {"--background-color": "rgba(0, 0, 0, .6)"}, "e")
+.to(".keywordCont > .text", {autoAlpha: 1}, "e")
