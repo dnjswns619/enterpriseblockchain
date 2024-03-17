@@ -341,13 +341,14 @@ body {
 #section--desc .descCont__bottom {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 70vh;
   background: url(../images/sc-desc.jpg) center/cover no-repeat;
+  --progress-width: 0;
 }
 #section--desc .descCont__bottom::before, #section--desc .descCont__bottom::after {
   content: "";
   position: absolute;
-  width: 20%;
+  width: var(--progress-width);
   height: 140px;
   background-color: #fff;
 }
@@ -367,5 +368,9 @@ body {
   color: #fff;
 }
 #section--desc .descCont__bottom--text .text {
+  width: fit-content;
   font-size: 72px;
+}
+#section--desc .descCont__bottom--text .text:nth-child(3) {
+  margin-left: auto;
 }
