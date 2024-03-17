@@ -16,7 +16,7 @@
         @include positionCenter;
         color: #fff;
         .text {
-          font-size: 100px;
+          font-size: $big-text;
         }
       }
       &--bg {

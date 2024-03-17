@@ -9,7 +9,7 @@ body {
   width: 100%;
 }
 .text {
-  font-size: 52px;
+  font-size: $small-text;
   &.small {
     font-size: 1.5rem;
   }
