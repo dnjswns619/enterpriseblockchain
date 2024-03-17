@@ -145,7 +145,7 @@ body {
   display: block;
   transition: filter 0.5s;
   padding: 17px 0;
-  filter: invert(1);
+  filter: invert(0);
 }
 .header .logo a img {
   width: 100px;
@@ -189,6 +189,9 @@ body {
   display: block;
   padding: 6px 13px;
   color: #fff;
+}
+.header.on .logo a {
+  filter: invert(1);
 }
 
 .dark .header .gnb__list--item,

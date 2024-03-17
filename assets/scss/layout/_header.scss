@@ -14,7 +14,7 @@
       display: block;
       transition: filter .5s;
       padding: 17px 0;
-      filter: invert(1);
+      filter: invert(0);
       img{
         width: 100px;
       }
@@ -60,6 +60,13 @@
       }
     }
   }
+  &.on {
+    .logo {
+      a{
+        filter: invert(1);
+      }
+    }
+  }
 }
 .dark .header .gnb__list--item,
 .header.on .gnb__list--item{
@@ -67,7 +74,7 @@
     transition: color .5s;
 }
 .dark .header .gnb__list--item .btn-lang svg,
-.header.on .gnb__list--item .btn-lang svg{
+.header.on .gnb__list--item .btn-lang svg {
     filter: invert(0);
     transition: filter .5s;
 }

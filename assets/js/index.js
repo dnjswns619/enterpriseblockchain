@@ -65,6 +65,19 @@ keywordSection
 .to(".keywordCont", {"--background-color": "rgba(0, 0, 0, .6)"}, "d")
 .to(".keywordCont > .text", {autoAlpha: 1}, "d")
 
+// header 비활성화
+ScrollTrigger.create({
+  trigger: ".descCont__top",
+  start: "top top",
+  // markers: true,
+  onEnter: () => {
+    $(".header").removeClass("on")
+  },
+  onLeaveBack: () => {
+    $(".header").addClass("on")
+  }
+})
+
 // section--desc
 const descSection = gsap.timeline({
   scrollTrigger: {
@@ -74,7 +87,6 @@ const descSection = gsap.timeline({
     scrub: 1,
     markers: true,
   },
-  ease: "none",
 })
 descSection
 .to(".descCont__bottom", {"--progress-width": "20%"}, "e")
