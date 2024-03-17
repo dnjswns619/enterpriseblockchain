@@ -49,8 +49,8 @@ const keywordSection = gsap.timeline({
     trigger: ".keywordCont--wrap",
     start: "top top",
     end: "100% 100%",
-    scrub: "0",
-    markers: true
+    scrub: 0,
+    // markers: true
   }
 })
 keywordSection
@@ -65,3 +65,19 @@ keywordSection
 .to(".keywordCont", {"--background-color": "rgba(0, 0, 0, .6)"}, "d")
 .to(".keywordCont > .text", {autoAlpha: 1}, "d")
 
+// section--desc
+const descSection = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".descCont__bottom",
+    start: "0% 80%",
+    end: "0% 20%",
+    scrub: 1,
+    markers: true,
+  },
+  ease: "none",
+})
+descSection
+.to(".descCont__bottom", {"--progress-width": "20%"}, "e")
+.to(".descCont__bottom", {"--progress-width": "20%"}, "e")
+.to(".descCont__bottom--text .text:nth-child(1)", {xPercent: -100}, "e")
+.to(".descCont__bottom--text .text:nth-child(3)", {xPercent: 100}, "e")
