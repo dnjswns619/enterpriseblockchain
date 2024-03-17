@@ -74,8 +74,7 @@
     transition: color .5s;
 }
 .dark .header .gnb__list--item .btn-lang svg,
-.header.on .gnb__list--item .btn-lang svg,
-{
+.header.on .gnb__list--item .btn-lang svg {
     filter: invert(0);
     transition: filter .5s;
 }
