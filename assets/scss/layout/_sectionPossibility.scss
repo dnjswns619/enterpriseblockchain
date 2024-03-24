@@ -1,0 +1,103 @@
+#section--possibility {
+  overflow-x: hidden;
+  .possibilityCont {
+    background: #000;
+    display: flex;
+    align-items: center;
+    gap: 160px;
+    position: relative;
+    height: 100vh;
+    padding: 0 100px;
+    &__tit {
+      font-size: $middle-text;
+      color: #fff;
+    }
+    &__item {
+      display: flex;
+      gap: 75px;
+      .item__box {
+        width: 300px;
+        height: 300px;
+        &--img {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          width: 100%;
+          height: 100%;
+          border: 2px solid #fff;
+          border-radius: 50px;
+          img {
+            max-width: 54%;
+            height: auto;
+          }
+        }
+        &:not(:last-child) .item__box--img::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          right: -50px;
+          transform: translateY(-50%) rotate(45deg);
+          width: 30px;
+          height: 30px;
+          border: 8px solid #fff;
+          border-left: none;
+          border-bottom: none;
+        }
+        &--text {
+          margin-top: 25px;
+          font-size: 24px;
+          color: #fff;
+        }
+        
+      }
+    }
+    &__graphic {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100vw;
+      height: 100%;
+      .graphic__box {
+        position: relative;
+        &--img {
+          max-width: 500px;
+          height: auto;
+        }
+        &--1 {
+          top: 10%;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        &--2 {
+          left: 10%;
+          bottom: 25%;
+        }
+        &--3 {
+          right: 10%;
+          bottom: 25%;
+        }
+        .graphic__title {
+          position: absolute;
+          text-align: center;
+          & > div {
+            color: #fff;
+          }
+          &--main-title {
+            font-size: 24px;
+          }
+        }
+      }
+    }
+    &__desc {
+      position: absolute;
+      left: 0;
+      bottom: 4vh;
+      padding: 0 100px;
+      &--text {
+        font-size: 14px;
+        color: rgba($color: #fff, $alpha: 0.6);
+      }
+    }
+  }
+}
