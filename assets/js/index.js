@@ -90,6 +90,5 @@ const descSection = gsap.timeline({
 })
 descSection
 .to(".descCont__bottom", {"--progress-width": "20%"}, "e")
-.to(".descCont__bottom", {"--progress-width": "20%"}, "e")
 .to(".descCont__bottom--text .text:nth-child(1)", {xPercent: -100}, "e")
 .to(".descCont__bottom--text .text:nth-child(3)", {xPercent: 100}, "e")
