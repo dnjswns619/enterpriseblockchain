@@ -377,3 +377,49 @@ body {
 #section--desc .descCont__bottom--text .text:nth-child(3) {
   margin-left: auto;
 }
+
+#section--gallery .galleryCont--wrap {
+  width: 100%;
+  height: 500vh;
+  padding: 0 100px;
+}
+#section--gallery .galleryCont--wrap .galleryCont {
+  display: flex;
+}
+#section--gallery .galleryCont--wrap .galleryCont__left {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 470px;
+  height: 100vh;
+}
+#section--gallery .galleryCont--wrap .galleryCont__left .text {
+  font-size: 72px;
+}
+#section--gallery .galleryCont--wrap .galleryCont__right {
+  flex: 0 0 calc(100% - 470px);
+  height: 100%;
+  padding: 100vh 0;
+  box-sizing: border-box;
+}
+#section--gallery .galleryCont--wrap .galleryCont__right--rightBox {
+  margin-left: auto;
+}
+#section--gallery .galleryCont--wrap .galleryCont__right .right__box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  height: 100vh;
+}
+#section--gallery .galleryCont--wrap .galleryCont__right .right__box--img {
+  width: 100%;
+  height: auto;
+}
+#section--gallery .galleryCont--wrap .galleryCont__right .right__box--title {
+  margin-top: 15px;
+  font-weight: 600;
+}
