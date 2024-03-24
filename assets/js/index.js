@@ -85,10 +85,43 @@ const descSection = gsap.timeline({
     start: "0% 80%",
     end: "0% 20%",
     scrub: 1,
-    markers: true,
+    // markers: true,
   },
 })
 descSection
 .to(".descCont__bottom", {"--progress-width": "20%"}, "e")
 .to(".descCont__bottom--text .text:nth-child(1)", {xPercent: -100}, "e")
 .to(".descCont__bottom--text .text:nth-child(3)", {xPercent: 100}, "e")
+
+const backgroundDark = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".possibilityCont",
+    start: "top 50%",
+    // markers: true,
+    onEnter: () => {
+      $(".header").addClass("on");
+      gsap.to("body",{"--background-color": "rgb(0, 0, 0)"})
+  
+    },
+    onLeaveBack: () => {
+      $(".header").removeClass("on")
+      gsap.to("body",{"--background-color": "transparent"})
+    },
+    ease: "none"
+  }
+})
+
+const possibilitySection = gsap.timeline({
+  scrollTrigger: {
+    trigger: "#section--possibility",
+    start: "top top",
+    end: "bottom bottom",
+    scrub: 0,
+    invalidateOnRefresh: true,
+    anticipatePin: 1,
+    markers: true
+  },
+  ease: "none"
+})
+possibilitySection
+.to(".possibilityCont", {x: () => -window.innerWidth - 285})
