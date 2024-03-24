@@ -424,17 +424,29 @@ body {
   font-weight: 600;
 }
 
+body {
+  --background-color: transparent;
+  background-color: var(--background-color);
+}
+
 #section--possibility {
+  width: 100%;
+  height: 500vh;
+}
+#section--possibility .possibilityCont__wrap {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
   overflow-x: hidden;
 }
 #section--possibility .possibilityCont {
-  background: #000;
   display: flex;
   align-items: center;
   gap: 160px;
-  position: relative;
   height: 100vh;
-  padding: 0 100px;
+  padding: 0 0 0 100px;
 }
 #section--possibility .possibilityCont__tit {
   font-size: 72px;
@@ -457,6 +469,7 @@ body {
   height: 100%;
   border: 2px solid #fff;
   border-radius: 50px;
+  background-color: #000;
 }
 #section--possibility .possibilityCont__item .item__box--img img {
   max-width: 54%;
@@ -510,7 +523,8 @@ body {
   position: absolute;
   text-align: center;
 }
-#section--possibility .possibilityCont__graphic .graphic__box .graphic__title > div {
+#section--possibility .possibilityCont__graphic .graphic__box .graphic__title > span {
+  display: block;
   color: #fff;
 }
 #section--possibility .possibilityCont__graphic .graphic__box .graphic__title--main-title {
