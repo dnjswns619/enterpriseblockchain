@@ -97,7 +97,7 @@ const backgroundDark = gsap.timeline({
   scrollTrigger: {
     trigger: ".possibilityCont",
     start: "0% 50%",
-    markers: true,
+    // markers: true,
     onEnter: () => {
       $(".header").addClass("on");
       $("body").addClass("dark");
@@ -123,3 +123,19 @@ const possibilitySection = gsap.timeline({
 })
 possibilitySection
 .to(".possibilityCont", {x: () => -window.innerWidth - 285})
+
+const featureSection = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".feature",
+    start: "0% 100%",
+    end: "100% 35%",
+    scrub: 0,
+    markers: true
+  }
+})
+featureSection
+.from(".feature__bg--pink", {xPercent:-60}, "f")
+.from(".feature__bg--blue", {xPercent:-60}, "f")
+.from(".feature__bg--green", {xPercent:50}, "f")
+.to(".feature__bg", {"--opacity-value": 1})
+.to(".feature__title", {autoAlpha:1})
