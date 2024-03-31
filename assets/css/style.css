@@ -107,6 +107,11 @@ body {
 body {
   font-family: "Archivo,NotoSansCJKkr";
   font-weight: bold;
+  transition: background-color 0.5s;
+}
+
+.dark {
+  background-color: #000;
 }
 
 #contianer {
@@ -424,14 +429,9 @@ body {
   font-weight: 600;
 }
 
-body {
-  --background-color: transparent;
-  background-color: var(--background-color);
-}
-
 #section--possibility {
   width: 100%;
-  height: 500vh;
+  height: 400vh;
 }
 #section--possibility .possibilityCont__wrap {
   position: sticky;
@@ -539,4 +539,73 @@ body {
 #section--possibility .possibilityCont__desc--text {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.6);
+}
+
+.challange__wrap {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  padding: 0 100px;
+}
+.challange > * {
+  color: #fff;
+}
+.challange__title {
+  width: fit-content;
+  padding-bottom: 15%;
+  font-size: 72px;
+  line-height: 1.28em;
+  font-weight: bold;
+  color: #fff;
+}
+.challange__cont {
+  padding-top: 15%;
+  padding-left: 100px;
+}
+
+.feature__wrap {
+  position: relative;
+}
+.feature__bg {
+  display: flex;
+  width: 100%;
+  height: 175px;
+}
+.feature__bg > span {
+  width: 33.33%;
+  height: 100%;
+}
+.feature__bg--pink {
+  background-color: #e657af;
+}
+.feature__bg--blue {
+  background-color: #0049ff;
+}
+.feature__bg--green {
+  background-color: #00bf41;
+}
+.feature__bg::after {
+  opacity: 0;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(50px);
+}
+.feature__title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  color: #fff;
+  white-space: noWrap;
+}
+
+.service {
+  width: 100%;
+  height: 100vh;
 }

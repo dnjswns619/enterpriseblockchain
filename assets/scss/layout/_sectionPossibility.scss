@@ -1,10 +1,6 @@
-body {
-  --background-color: transparent;
-  background-color: var(--background-color);
-}
 #section--possibility {
   width: 100%;
-  height: 500vh;
+  height: 400vh;
   .possibilityCont__wrap {
     @include sticky;
     width: 100%;

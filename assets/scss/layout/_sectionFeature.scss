@@ -1,0 +1,39 @@
+.feature {
+  &__wrap {
+    position: relative;
+  }
+  &__bg {
+    display: flex;
+    width: 100%;
+    height: 175px;
+    & > span {
+      width: 33.33%;
+      height: 100%;
+    }
+    &--pink {
+      background-color: #e657af
+    }
+    &--blue {
+      background-color: #0049ff
+    }
+    &--green {
+      background-color: #00bf41
+    }
+    &::after {
+      opacity: 0;
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(50px)
+    }
+  }
+  &__title {
+    @include positionCenter;
+    font-size: 40px;
+    color: #fff;
+    white-space: noWrap;
+  }
+}
