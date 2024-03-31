@@ -96,18 +96,16 @@ descSection
 const backgroundDark = gsap.timeline({
   scrollTrigger: {
     trigger: ".possibilityCont",
-    start: "top 50%",
-    // markers: true,
+    start: "0% 50%",
+    markers: true,
     onEnter: () => {
       $(".header").addClass("on");
-      gsap.to("body",{"--background-color": "rgb(0, 0, 0)"})
-  
+      $("body").addClass("dark");
     },
     onLeaveBack: () => {
-      $(".header").removeClass("on")
-      gsap.to("body",{"--background-color": "transparent"})
-    },
-    ease: "none"
+      $(".header").removeClass("on");
+      $("body").removeClass("dark");
+    }
   }
 })
 
@@ -119,7 +117,7 @@ const possibilitySection = gsap.timeline({
     scrub: 0,
     invalidateOnRefresh: true,
     anticipatePin: 1,
-    markers: true
+    // markers: true
   },
   ease: "none"
 })

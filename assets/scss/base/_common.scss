@@ -4,7 +4,9 @@
 body {
   font-family: 'Archivo,NotoSansCJKkr';
   font-weight: bold;
+  transition: background-color 0.5s;
 }
+.dark { background-color: #000; }
 #contianer {
   width: 100%;
 }
