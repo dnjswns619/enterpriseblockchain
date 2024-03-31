@@ -568,6 +568,7 @@ body {
   position: relative;
 }
 .feature__bg {
+  --opacity-value: 0;
   display: flex;
   width: 100%;
   height: 175px;
@@ -586,7 +587,7 @@ body {
   background-color: #00bf41;
 }
 .feature__bg::after {
-  opacity: 0;
+  opacity: var(--opacity-value);
   content: "";
   position: absolute;
   top: 0;
@@ -596,6 +597,7 @@ body {
   backdrop-filter: blur(50px);
 }
 .feature__title {
+  opacity: 0;
   position: absolute;
   top: 50%;
   left: 50%;
