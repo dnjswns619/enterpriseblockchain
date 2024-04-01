@@ -1,5 +1,5 @@
-#section--desc {
-  .descCont__top {
+.desc {
+  &__topCont {
     display: flex;
     align-items: center;
     width: 100%;
@@ -18,7 +18,7 @@
       padding-top: 15%;
     }
   }
-  .descCont__bottom {
+  &__bottomCont {
     position: relative;
     width: 100%;
     height: 70vh;
