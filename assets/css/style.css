@@ -609,14 +609,16 @@ body {
 
 .service {
   width: 100%;
-  height: 100vh;
+  height: 400vh;
 }
 .service__wrap {
+  position: sticky;
+  top: 0;
+  left: 0;
   display: flex;
   align-items: center;
   gap: 160px;
-  width: 100%;
-  height: 100%;
+  height: 100vh;
   padding-left: 100px;
 }
 .service__title {
@@ -631,6 +633,7 @@ body {
   width: 400px;
   height: 540px;
   padding: 34px;
+  background-color: #000;
   border: 2px solid #fff;
   border-radius: 20px;
 }
@@ -677,6 +680,7 @@ body {
   background-clip: content-box, border-box;
 }
 .service .card__item--lock .icon__wrap--img {
+  opacity: 0;
   --progress-opacity: 0;
   position: absolute;
   top: 50%;
@@ -686,8 +690,5 @@ body {
   height: auto;
 }
 .service .card__item--lock .icon__wrap--img.open {
-  opacity: calc(1 - var(--progress-opacity));
-}
-.service .card__item--lock .icon__wrap--img.lock {
-  opacity: var(--progress-opacity);
+  opacity: 1;
 }

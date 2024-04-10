@@ -130,7 +130,7 @@ const featureSection = gsap.timeline({
     start: "0% 100%",
     end: "100% 35%",
     scrub: 0,
-    markers: true
+    // markers: true
   }
 })
 featureSection
@@ -139,3 +139,23 @@ featureSection
 .from(".feature__bg--green", {xPercent:50}, "f")
 .to(".feature__bg", {"--opacity-value": 1})
 .to(".feature__title", {autoAlpha:1})
+
+const serviceTitle = document.querySelector(".service__title")
+const serviceSection = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".service",
+    start: "top top",
+    end: "bottom bottom",
+    scrub: 0,
+    markers: true
+  }
+})
+const cards = gsap.utils.toArray(".card__item");
+serviceSection.to(".service__wrap", { x: () => -(serviceTitle.offsetWidth + 160) })
+cards.forEach((card, idx) => {
+  return serviceSection.to(card, { x: () => -(card.offsetWidth + 40) * idx, delay: 0.1 }, "g")
+})
+serviceSection
+.to(".icon__wrap--img.open", {autoAlpha: 0}, "g")
+.to(".icon__wrap--img.lock", {autoAlpha: 1}, "g+=0.3")
+.to(".icon__wrap--img.lock", {autoAlpha: 0})
