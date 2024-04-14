@@ -93,6 +93,7 @@ descSection
 .to(".descCont__bottom--text .text:nth-child(1)", {xPercent: -100}, "e")
 .to(".descCont__bottom--text .text:nth-child(3)", {xPercent: 100}, "e")
 
+// section--possibility 진입시 백그라운드 black
 const backgroundDark = gsap.timeline({
   scrollTrigger: {
     trigger: ".possibilityCont",
@@ -109,6 +110,7 @@ const backgroundDark = gsap.timeline({
   }
 })
 
+// section--possibility
 const possibilitySection = gsap.timeline({
   scrollTrigger: {
     trigger: "#section--possibility",
@@ -124,6 +126,7 @@ const possibilitySection = gsap.timeline({
 possibilitySection
 .to(".possibilityCont", {x: () => -window.innerWidth - 285})
 
+// section--feature
 const featureSection = gsap.timeline({
   scrollTrigger: {
     trigger: ".feature",
@@ -140,6 +143,7 @@ featureSection
 .to(".feature__bg", {"--opacity-value": 1})
 .to(".feature__title", {autoAlpha:1})
 
+// section--service
 const serviceTitle = document.querySelector(".service__title")
 const serviceSection = gsap.timeline({
   scrollTrigger: {
@@ -150,6 +154,7 @@ const serviceSection = gsap.timeline({
     markers: true
   }
 })
+// section : service-top
 const cards = gsap.utils.toArray(".service__top .card__item");
 serviceSection.to(".service__top", { x: () => -(serviceTitle.offsetWidth + 160) })
 cards.forEach((card, idx) => {
@@ -160,6 +165,7 @@ serviceSection
 .to(".icon__wrap--img.lock", {autoAlpha: 1}, "g+=0.3")
 .to(".icon__wrap--img.lock", {autoAlpha: 0})
 
+// section : service-main
 const serviceMainsection = gsap.timeline({
   scrollTrigger: {
     trigger: ".service__main",
@@ -188,6 +194,7 @@ gsap.to(".service__main", {
   "--progress-opacity": "1"
 })
 
+// section : service-bottom
 const serviceBottomSection = gsap.timeline({
   scrollTrigger: {
     trigger: ".service__bottom",
@@ -224,6 +231,7 @@ const serviceBottomCardBlur = gsap.timeline({
 serviceBottomCardBlur
 .to(".service__bottom", {"--progress-opacity": "1"})
 
+// section : service-footer
 const serviceFooterSection = gsap.timeline({
   scrollTrigger: {
     trigger: ".service__footer",
@@ -244,3 +252,35 @@ const serviceFooterSection = gsap.timeline({
 })
 serviceFooterSection
 .to(".service__footer", {"--progress-opacity": "1"})
+
+// section-desc-2 진입시 백그라운드 white
+const backgroundWhite = gsap.timeline({
+  scrollTrigger: {
+    trigger: "#section--desc-2",
+    start: "0% 50%",
+    // markers: true,
+    onEnter: () => {
+      $(".header").removeClass("on");
+      $("body").removeClass("dark");
+    },
+    onLeaveBack: () => {
+      $(".header").addClass("on");
+      $("body").addClass("dark");
+    },
+  }
+})
+
+// section--desc2
+const desc2Section = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".desc-2__bottom",
+    start: "0% 80%",
+    end: "0% 20%",
+    scrub: 1,
+    // markers: true,
+  },
+})
+desc2Section
+.to(".desc-2__bottom", {"--progress-width": "20%"}, "e")
+.to(".desc-2__bottom--text .text:nth-child(1)", {xPercent: -100}, "e")
+.to(".desc-2__bottom--text .text:nth-child(3)", {xPercent: 100}, "e")

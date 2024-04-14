@@ -1,0 +1,56 @@
+.desc-2 {
+  &__top {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    padding: 0 100px;
+    & > * {
+      width: 50%;
+    }
+    &--tit {
+      padding-bottom: 15%;
+      font-size: $middle-text;
+      line-height: 1.28em;
+      font-weight: bold;
+    }
+    &--text {
+      padding-top: 15%;
+      padding-left: 100px;
+    }
+  }
+  &__bottom {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    background: url(../images/sc-desc2.jpg) center / cover no-repeat;
+    --progress-width: 0;
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: var(--progress-width);
+      height: 140px;
+      background-color: #fff;
+    }
+    &::before {
+      top: 0;
+      right: 0;
+    }
+    &::after {
+      bottom: 0;
+      left: 0;
+    }
+    &--text {
+      @include positionCenter;
+      color: #fff;
+      .text {
+        width: fit-content;
+        font-size: $middle-text;
+        &:nth-child(3) {
+          margin-left: auto;
+        }
+      }
+    }
+  }
+}
