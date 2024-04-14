@@ -144,14 +144,14 @@ const serviceTitle = document.querySelector(".service__title")
 const serviceSection = gsap.timeline({
   scrollTrigger: {
     trigger: ".service",
-    start: "top top",
-    end: "bottom bottom",
+    start: "0% 0%",
+    end: "33% bottom",
     scrub: 0,
     markers: true
   }
 })
-const cards = gsap.utils.toArray(".card__item");
-serviceSection.to(".service__wrap", { x: () => -(serviceTitle.offsetWidth + 160) })
+const cards = gsap.utils.toArray(".service__top .card__item");
+serviceSection.to(".service__top", { x: () => -(serviceTitle.offsetWidth + 160) })
 cards.forEach((card, idx) => {
   return serviceSection.to(card, { x: () => -(card.offsetWidth + 40) * idx, delay: 0.1 }, "g")
 })
@@ -159,3 +159,77 @@ serviceSection
 .to(".icon__wrap--img.open", {autoAlpha: 0}, "g")
 .to(".icon__wrap--img.lock", {autoAlpha: 1}, "g+=0.3")
 .to(".icon__wrap--img.lock", {autoAlpha: 0})
+
+const serviceMainsection = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".service__main",
+    start: "0% 0%",
+    end: "100% 100%",
+    onEnter: () => {
+      gsap.set(".service__main", {autoAlpha: 1}, "h");
+      gsap.set(".service__top", {autoAlpha: 0}, "h");
+    },
+    onLeaveBack: () => {
+      gsap.set(".service__main", {autoAlpha: 0}, "h");
+      gsap.set(".service__top", {autoAlpha: 1}, "h");
+    }
+  },
+  ease: "none",
+})
+
+const serviceBottomSection = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".service__bottom",
+    start: "0% 0%",
+    end: "100% 100%",
+    scrub: 0,
+    // markers: true,
+    onEnter: () => {
+      gsap.set(".service__bottom .card__item--lock", {autoAlpha: 1}, "i");
+      gsap.set(".service__main", {autoAlpha: 0}, "i");
+    },
+    onLeaveBack: () => {
+      gsap.set(".service__bottom .card__item--lock", {autoAlpha: 0}, "i");
+      gsap.set(".service__main", {autoAlpha: 1}, "i");
+    }
+  },
+  ease: "none",
+})
+
+const bottomCards = gsap.utils.toArray(".service__bottom .card .card__item");
+bottomCards.forEach((card, idx) => {
+  return serviceBottomSection.to(card, { x: () => -(card.offsetWidth + 40) * idx, delay: 0.1 }, "j")
+})
+
+const serviceBottomCardBlur = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".service__bottom",
+    start: "0% 18%",
+    end: "0% 0%",
+    // markers: true,
+  },
+  ease: "none"
+})
+serviceBottomCardBlur
+.to(".service__bottom", {"--progress-opacity": "1"})
+
+const serviceFooterSection = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".service__footer",
+    start: "0% 0%",
+    end: "100% 100%",
+    scrub: 0,
+    markers: true,
+    onEnter: () => {
+      gsap.set(".service__footer", {autoAlpha: 1}, "k");
+      gsap.set(".service__bottom", {autoAlpha: 0}, "k");
+    },
+    onLeaveBack: () => {
+      gsap.set(".service__footer", {autoAlpha: 0}, "k");
+      gsap.set(".service__bottom", {autoAlpha: 1}, "k");
+    }
+  },
+  ease: "none",
+})
+serviceFooterSection
+.to(".service__footer", {"--progress-opacity": "1"})
