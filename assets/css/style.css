@@ -960,3 +960,60 @@ body {
   font-size: 72px;
   color: #fff;
 }
+
+.desc-2__top {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  padding: 0 100px;
+}
+.desc-2__top > * {
+  width: 50%;
+}
+.desc-2__top--tit {
+  padding-bottom: 15%;
+  font-size: 72px;
+  line-height: 1.28em;
+  font-weight: bold;
+}
+.desc-2__top--text {
+  padding-top: 15%;
+  padding-left: 100px;
+}
+.desc-2__bottom {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  background: url(../images/sc-desc2.jpg) center/cover no-repeat;
+  --progress-width: 0;
+}
+.desc-2__bottom::before, .desc-2__bottom::after {
+  content: "";
+  position: absolute;
+  width: var(--progress-width);
+  height: 140px;
+  background-color: #fff;
+}
+.desc-2__bottom::before {
+  top: 0;
+  right: 0;
+}
+.desc-2__bottom::after {
+  bottom: 0;
+  left: 0;
+}
+.desc-2__bottom--text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
+.desc-2__bottom--text .text {
+  width: fit-content;
+  font-size: 72px;
+}
+.desc-2__bottom--text .text:nth-child(3) {
+  margin-left: auto;
+}
