@@ -165,6 +165,7 @@ const serviceMainsection = gsap.timeline({
     trigger: ".service__main",
     start: "0% 0%",
     end: "100% 100%",
+    scrub: 0,
     onEnter: () => {
       gsap.set(".service__main", {autoAlpha: 1}, "h");
       gsap.set(".service__top", {autoAlpha: 0}, "h");
@@ -175,6 +176,16 @@ const serviceMainsection = gsap.timeline({
     }
   },
   ease: "none",
+})
+
+gsap.to(".service__main", {
+  scrollTrigger: {
+    trigger: ".service__main",
+    start: "0% 0%",
+    end: "20% 10%",
+    scrub: 0,
+  },
+  "--progress-opacity": "1"
 })
 
 const serviceBottomSection = gsap.timeline({
