@@ -1,13 +1,17 @@
 .service {
   width: 100%;
-  height: 400vh;
-  &__wrap {
-    @include sticky;
-    display: flex;
-    align-items: center;
-    gap: 160px;
-    height: 100vh;
-    padding-left: 100px;
+  height: 1000vh;
+  &__top {
+    opacity: 1;
+    height: 400vh;
+    &--wrap {
+      @include sticky;
+      display: flex;
+      align-items: center;
+      gap: 160px;
+      height: 100vh;
+      padding-left: 100px;
+    }
   }
   &__title {
     font-size: $middle-text;
@@ -46,12 +50,16 @@
       }
       &--info {
         display: flex;
-        justify-content: space-between;
         align-items: center;
+        position: relative;
         font-size: 24px;
         color: #fff;
         &::after {
           content: "";
+          position: absolute;
+          top: 50%;
+          right: 0;
+          transform: translateY(-50%);
           width: 40px;
           height: 40px;
           background: url(../images/card-icon.png) center / contain no-repeat;
@@ -60,14 +68,10 @@
       &--lock {
         position: relative;
         padding: 0;
-        border: 2px solid transparent;
-        background: linear-gradient(#000,#000),linear-gradient(315deg,#e657af,#0049ff,#43cf2e);
-        background-origin: border-box;
-        background-clip: content-box, border-box;
+        @include borderGradient;
         .icon__wrap {
           &--img {
             opacity: 0;
-            --progress-opacity: 0;
             @include positionCenter;
             width: 150px;
             height: auto;
@@ -76,6 +80,212 @@
             }
           }
         }
+      }
+    }
+  }
+  &__main {
+    opacity: 0;
+    display: flex;
+    gap: 260px;
+    height: 410vh;
+    margin-top: -100vh;
+    padding: 0 100px;
+    .card__item--sticky {
+      display: flex;
+      align-items: center;
+      @include sticky;
+      height: 100vh;
+      .card__item--lock {
+        @include flexCenter;
+        .icon__wrap {
+          &--text {
+            @include textGradient;
+            font-size: 40px;
+          }
+        }
+      }
+    }
+    .content {
+      flex: 1;
+      padding-top: 100vh;
+      .text { color: #fff; }
+      &__title {
+        font-size: 72px;
+        line-height: 1.4;
+        letter-spacing: -2px;
+      }
+      &__desc {
+        max-width: 750px;
+        margin-top: 34px;
+        font-size: 24px;
+      }
+      &__info {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        margin-top: 80px;
+        .info {
+          display: flex;
+          align-items: center;
+          gap: 50px;
+          &__box {
+            @include flexCenter;
+            width: 400px;
+            height: 200px;
+            @include borderGradient;
+            &--text {
+              @include textGradient;
+              font-size: 28px;
+              text-align: center;
+            }
+          }
+          &__title {
+            font-size: 28px;
+            color: #fff;
+          }
+        }
+      }
+      &__serviceList {
+        margin-top: 160px;
+        &--title {
+          margin-bottom: 80px;
+          font-size: 60px;
+          color: #fff;
+        }
+        &--wrap {
+          display: flex;
+          gap: 50px;
+          .serviceList__item {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            &--img {
+              width: 100%;
+            }
+            &--info {
+              margin-top: 24px;
+              font-size: 24px;
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+  &__bottom {
+    --progress-opacity: 0;
+    height: 300vh;
+    margin-top: -100vh;
+    .card {
+      display: flex;
+      align-items: center;
+      @include sticky;
+      width: 100%;
+      height: 100vh;
+      padding: 0 100px;
+      &__item {
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        border-color: transparent;
+        & > * { position: relative; }
+        @for $i from 1 to 4 {
+          &:nth-child(#{$i}) {
+            z-index: calc(4 - $i);
+          }
+        }
+        &:not(.card__item--lock) {
+          border: none;
+        }
+        &--lock {
+          opacity: 0;
+          @include flexCenter;
+          .icon__wrap {
+            &--text {
+              @include textGradient;
+              font-size: 40px;
+            }
+          }
+        }
+        &--content {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          margin: 0;
+          img {
+            filter: blur(calc(50px * var(--progress-opacity)));
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+        &--desc {
+          opacity: var(--progress-opacity);
+          flex: 1;
+          margin-top: 44px;
+          color: #fff;
+        }
+        &--info {
+          gap: 9px;
+          font-size: 16px;
+          & span {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+          }
+          &[data-bg-type="1"] span { background-color: #ff009d; }
+          &[data-bg-type="2"] span { background-color: #0049ff; }
+          &[data-bg-type="3"] span { background-color: #26ff00; }
+        }
+      }
+    }
+  }
+  &__footer {
+    --progress-opacity: 0;
+    opacity: 0;
+    position: relative;
+    height: 200vh;
+    margin-top: -100vh;
+    &--content {
+      display: flex;
+      align-items: center;
+      gap: 200px;
+      @include sticky;
+      height: 100vh;
+      padding: 0 100px;
+      .card__item {
+        position: relative;
+        &--lock {
+          @include flexCenter;
+          &::before {
+            opacity: var(--progress-opacity);
+            content: "";
+            position: absolute;
+            width: 160%;
+            height: 160%;
+            background: url(../images/card-glow.png) center / contain no-repeat;
+          }
+          .icon__wrap {
+            @include flexCenter;
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            border-radius: 20px;
+            &--text {
+              @include textGradient;
+              font-size: 40px;
+            }
+          }
+        }
+      }
+      & > .text {
+        opacity: var(--progress-opacity);
+        font-size: $middle-text;
+        color: #fff;
       }
     }
   }

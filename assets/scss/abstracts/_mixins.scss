@@ -29,3 +29,19 @@
   height: 100%;
   background-color: var(--background-color);
 }
+@mixin borderGradient {
+  border: 2px solid transparent;
+  border-radius: 20px;
+  background: linear-gradient(#000,#000),linear-gradient(315deg,#e657af,#0049ff,#43cf2e);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  -webkit-background-clip: content-box, border-box;
+}
+@mixin textGradient {
+  background: linear-gradient(90deg, #43cf2e,#0049ff,#e657af,);
+  background-size: cover;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: noWrap;
+}
