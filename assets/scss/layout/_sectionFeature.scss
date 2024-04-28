@@ -1,6 +1,8 @@
 .feature {
   &__wrap {
     position: relative;
+    width: 100%;
+    overflow-x: hidden;
   }
   &__bg {
     --opacity-value: 0;
