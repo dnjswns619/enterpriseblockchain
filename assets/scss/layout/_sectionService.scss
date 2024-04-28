@@ -6,6 +6,11 @@
     height: 400vh;
     &--wrap {
       @include sticky;
+      width: 100%;
+      height: 100vh;
+      overflow-x: hidden;
+    }
+    &--cont {
       display: flex;
       align-items: center;
       gap: 160px;
@@ -178,11 +183,15 @@
     --progress-opacity: 0;
     height: 300vh;
     margin-top: -100vh;
+    &--cont {
+      @include sticky;
+      width: 100%;
+      height: 100vh;
+      overflow-x: hidden;
+    }
     .card {
       display: flex;
       align-items: center;
-      @include sticky;
-      width: 100%;
       height: 100vh;
       padding: 0 100px;
       &__item {
