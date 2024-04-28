@@ -496,7 +496,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100vw;
+  width: 100%;
   height: 100%;
 }
 #section--possibility .possibilityCont__graphic .graphic__box {
@@ -566,6 +566,8 @@ body {
 
 .feature__wrap {
   position: relative;
+  width: 100%;
+  overflow-x: hidden;
 }
 .feature__bg {
   --opacity-value: 0;
@@ -619,6 +621,11 @@ body {
   position: sticky;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+}
+.service__top--cont {
   display: flex;
   align-items: center;
   gap: 160px;
@@ -818,13 +825,17 @@ body {
   height: 300vh;
   margin-top: -100vh;
 }
-.service__bottom .card {
-  display: flex;
-  align-items: center;
+.service__bottom--cont {
   position: sticky;
   top: 0;
   left: 0;
   width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+}
+.service__bottom .card {
+  display: flex;
+  align-items: center;
   height: 100vh;
   padding: 0 100px;
 }
@@ -1023,13 +1034,17 @@ body {
   height: 300vh;
 }
 .finance__wrap {
-  display: flex;
-  align-items: center;
-  gap: 160px;
   position: sticky;
   top: 0;
   left: 0;
-  width: auto;
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+}
+.finance__wrap--sticky {
+  display: flex;
+  align-items: center;
+  gap: 160px;
   height: 100vh;
   padding: 0 100px;
 }

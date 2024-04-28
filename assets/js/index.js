@@ -156,7 +156,7 @@ const serviceSection = gsap.timeline({
 })
 // section : service-top
 const cards = gsap.utils.toArray(".service__top .card__item");
-serviceSection.to(".service__top", { x: () => -(serviceTitle.offsetWidth + 160) })
+serviceSection.to(".service__top--cont", { x: () => -(serviceTitle.offsetWidth + 160) })
 cards.forEach((card, idx) => {
   return serviceSection.to(card, { x: () => -(card.offsetWidth + 40) * idx, delay: 0.1 }, "g")
 })
@@ -284,3 +284,19 @@ desc2Section
 .to(".desc-2__bottom", {"--progress-width": "20%"}, "e")
 .to(".desc-2__bottom--text .text:nth-child(1)", {xPercent: -100}, "e")
 .to(".desc-2__bottom--text .text:nth-child(3)", {xPercent: 100}, "e")
+
+// section--finance
+const financeSection = gsap.timeline({
+  scrollTrigger: {
+    trigger: "#section--finance",
+    start: "top top",
+    end: "bottom bottom",
+    scrub: 0,
+    invalidateOnRefresh: true,
+    anticipatePin: 1,
+    // markers: true
+  },
+  ease: "none"
+})
+financeSection
+.to(".finance__wrap--sticky", {x: () => -window.innerWidth / 2})
