@@ -151,7 +151,7 @@ const serviceSection = gsap.timeline({
     start: "0% 0%",
     end: "33% bottom",
     scrub: 0,
-    markers: true
+    // markers: true
   }
 })
 // section : service-top
@@ -238,7 +238,7 @@ const serviceFooterSection = gsap.timeline({
     start: "0% 0%",
     end: "100% 100%",
     scrub: 0,
-    markers: true,
+    // markers: true,
     onEnter: () => {
       gsap.set(".service__footer", {autoAlpha: 1}, "k");
       gsap.set(".service__bottom", {autoAlpha: 0}, "k");
@@ -300,3 +300,27 @@ const financeSection = gsap.timeline({
 })
 financeSection
 .to(".finance__wrap--sticky", {x: () => -window.innerWidth / 2})
+// finance section 진입시 arrow 생성 / 50% 지났을때 텍스트 변경
+const financeArrow = gsap.timeline({
+  scrollTrigger: {
+    trigger: "#section--finance",
+    start: "top top",
+    end: "50% bottom",
+    invalidateOnRefresh: true,
+    anticipatePin: 1,
+    markers: true,
+    onEnter: () => {
+      $(".finance .arrow").addClass("on");
+    },
+    onLeave: () => {
+      $(".finance .arrow").addClass("change");
+    },
+    onEnterBack: () => {
+      $(".finance .arrow").removeClass("change");
+    },
+    onLeaveBack: () => {
+      $(".finance .arrow").removeClass("on");
+    }
+  },
+  ease: "none",
+})
