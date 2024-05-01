@@ -1215,3 +1215,30 @@ body {
     opacity: 1;
   }
 }
+
+.creator {
+  height: 200vh;
+}
+.creator__wrap {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: url(../images/creator.jpg) center/100% auto no-repeat;
+}
+.creator__intro {
+  position: absolute;
+  left: 200px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+}
+.creator__intro--title {
+  margin-bottom: 25px;
+  font-size: 60px;
+  line-height: 1.2;
+}
+.creator__intro--desc {
+  font-size: 24px;
+}

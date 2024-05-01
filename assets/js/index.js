@@ -294,7 +294,13 @@ const financeSection = gsap.timeline({
     scrub: 0,
     invalidateOnRefresh: true,
     anticipatePin: 1,
-    // markers: true
+    // markers: true,
+    onLeave: () => {
+      $(".finance .arrow").removeClass("on")
+    },
+    onEnterBack: () => {
+      $(".finance .arrow").addClass("on")
+    }
   },
   ease: "none"
 })
