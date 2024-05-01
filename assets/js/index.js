@@ -314,7 +314,7 @@ const financeArrow = gsap.timeline({
     end: "50% bottom",
     invalidateOnRefresh: true,
     anticipatePin: 1,
-    markers: true,
+    // markers: true,
     onEnter: () => {
       $(".finance .arrow").addClass("on");
     },
@@ -330,3 +330,18 @@ const financeArrow = gsap.timeline({
   },
   ease: "none",
 })
+
+// section--creator
+const creatorSection = gsap.timeline({
+  scrollTrigger: {
+    trigger: "#section--creator",
+    start: "top top",
+    end: "bottom bottom",
+    scrub: 0,
+    markers: true,
+  },
+  ease: "none"
+})
+creatorSection
+.to(".creator .creator__intro", {duration: 2, autoAlpha: 1})
+.to(".creator .creator__intro", {duration: 1, autoAlpha: 0})
