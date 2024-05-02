@@ -1,36 +1,36 @@
 @font-face {
   font-family: "Archivo";
-  src: url("../../fonts/Archivo-Light.woff2") format("woff2");
+  src: url("../fonts/Archivo-Light.woff2") format("woff2");
   font-weight: 300;
 }
 @font-face {
   font-family: "Archivo";
-  src: url("../../fonts/Archivo-Regular.woff2") format("woff2");
+  src: url("../fonts/Archivo-Regular.woff2") format("woff2");
   font-weight: normal;
 }
 @font-face {
   font-family: "Archivo";
-  src: url("../../fonts/Archivo-SemiBold.woff2") format("woff2");
+  src: url("../fonts/Archivo-SemiBold.woff2") format("woff2");
   font-weight: 500;
 }
 @font-face {
   font-family: "Archivo";
-  src: url("../../fonts/Archivo-Bold.woff2") format("woff2");
+  src: url("../fonts/Archivo-Bold.woff2") format("woff2");
   font-weight: 600;
 }
 @font-face {
   font-family: "NotoSansCJKkr";
-  src: url("../../fonts/NotoSansCJKkr-Light.woff2") format("woff2");
+  src: url("../fonts/NotoSansCJKkr-Light.woff2") format("woff2");
   font-weight: 300;
 }
 @font-face {
   font-family: "NotoSansCJKkr";
-  src: url("../../fonts/NotoSansCJKkr-Regular.woff2") format("woff2");
+  src: url("../fonts/NotoSansCJKkr-Regular.woff2") format("woff2");
   font-weight: normal;
 }
 @font-face {
   font-family: "NotoSansCJKkr";
-  src: url("../../fonts/NotoSansCJKkr-Bold.woff2") format("woff2");
+  src: url("../fonts/NotoSansCJKkr-Bold.woff2") format("woff2");
   font-weight: 600;
 }
 * {
@@ -105,7 +105,7 @@ body {
 }
 
 body {
-  font-family: "Archivo,NotoSansCJKkr";
+  font-family: "Archivo", "NotoSansCJKkr";
   font-weight: bold;
   transition: background-color 0.5s;
 }
@@ -1241,5 +1241,156 @@ body {
   line-height: 1.2;
 }
 .creator__intro--desc {
+  font-size: 24px;
+}
+
+.use {
+  width: 100%;
+  height: 300vh;
+  margin-top: 10vh;
+}
+.use__wrap {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+}
+.use__wrap--sticky {
+  display: flex;
+  align-items: center;
+  gap: 160px;
+  height: 100vh;
+  padding: 0 100px;
+}
+.use__title .Text {
+  font-size: 72px;
+  line-height: 1.27;
+}
+.use__item {
+  display: flex;
+  gap: 40px;
+}
+.use .card__item {
+  position: relative;
+  width: 400px;
+  height: 540px;
+  padding: 32px;
+  border-radius: 20px;
+}
+.use .card__item:nth-child(1) {
+  overflow: hidden;
+}
+.use .card__item:nth-child(1) .blurImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: hsl(0, 0%, 42%);
+  object-fit: cover;
+  filter: blur(15px);
+}
+.use .card__item:nth-child(1) .card__item--tit::before {
+  content: "****";
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 30px;
+}
+.use .card__item:nth-child(1) .card__item--info::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background: url(../images/card-icon.png) center/contain no-repeat;
+}
+.use .card__item:nth-child(2) {
+  background-color: #0049ff;
+}
+.use .card__item:nth-child(3) {
+  background-color: #000;
+}
+.use .card__item:nth-child(4) {
+  background-color: #00bf41;
+}
+.use .card__item--tit {
+  position: relative;
+  color: #fff;
+  font-size: 50px;
+  line-height: 1.21;
+}
+.use .card__item--content {
+  position: relative;
+  margin-top: 40px;
+}
+.use .card__item--content .content__wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.use .card__item--content .content__item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #fff;
+}
+.use .card__item--content .content__item--tit {
+  font-size: 20px;
+}
+.use .card__item--content .content__item--desc {
+  display: block;
+  width: 100%;
+}
+.use .card__item--info {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 34px;
+  bottom: 34px;
+  width: calc(100% - 64px);
+  color: #fff;
+}
+.use .card__item--info::before {
+  content: "";
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  background-color: #ff009d;
+  border-radius: 50%;
+}
+.use .card__item .img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: hsl(0, 0%, 42%);
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.use .card__item .img.blur {
+  opacity: 1;
+}
+.use .card__item .img::before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-blend-mode: multiply;
+  background-color: hsla(0, 0%, 42%, 0.3);
+}
+.use .card__item .img img {
+  width: 100%;
+  filter: blur(50px);
+}
+.use__desc .Text {
   font-size: 24px;
 }
