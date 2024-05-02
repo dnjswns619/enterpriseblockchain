@@ -338,10 +338,41 @@ const creatorSection = gsap.timeline({
     start: "top top",
     end: "bottom bottom",
     scrub: 0,
-    markers: true,
+    // markers: true,
   },
   ease: "none"
 })
 creatorSection
 .to(".creator .creator__intro", {duration: 2, autoAlpha: 1})
 .to(".creator .creator__intro", {duration: 1, autoAlpha: 0})
+
+// section--use
+const useSection = gsap.timeline({
+  scrollTrigger: {
+    trigger: "#section--use",
+    start: "top top",
+    end: "bottom bottom",
+    scrub: 0,
+    invalidateOnRefresh: true,
+    anticipatePin: 1,
+    // markers: true,
+  },
+  ease: "none"
+})
+useSection
+.to(".use__wrap--sticky", {x: () => -(window.innerWidth - 700)})
+// useSection 화면에 진입시 블러처리 / 텍스트 보이기
+const useContChangeOpacity = gsap.timeline({
+  scrollTrigger: {
+    trigger: "#section--use",
+    start: "top 30%",
+    end: "bottom bottom",
+    scrub: 0,
+    markers: true,
+    onEnter: () => {
+      $(".use .img").addClass("blur");
+      $(".use .card__item:nth-child(1)").addClass("content__item--active");
+    }
+  },
+  ease: "none"
+})

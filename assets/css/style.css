@@ -1299,6 +1299,12 @@ body {
   right: 0;
   font-size: 30px;
 }
+.use .card__item:nth-child(1) .content__item--desc {
+  opacity: 0;
+}
+.use .card__item:nth-child(1).content__item--active .content__item--desc {
+  opacity: 1;
+}
 .use .card__item:nth-child(1) .card__item--info::after {
   content: "";
   position: absolute;
@@ -1370,16 +1376,13 @@ body {
   bottom: 0;
   right: 0;
   background-color: hsl(0, 0%, 42%);
-  opacity: 0;
-  transition: opacity 0.5s;
-}
-.use .card__item .img.blur {
-  opacity: 1;
 }
 .use .card__item .img::before {
+  opacity: 0;
+  transition: opacity 0.5s;
   content: "";
-  position: absolute;
   display: block;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -1387,7 +1390,11 @@ body {
   background-blend-mode: multiply;
   background-color: hsla(0, 0%, 42%, 0.3);
 }
-.use .card__item .img img {
+.use .card__item .img.blur::before {
+  opacity: 1;
+}
+.use .card__item .img.blur img {
+  transition: filter 0.5s;
   width: 100%;
   filter: blur(50px);
 }
