@@ -51,6 +51,14 @@
           right: 0;
           font-size: 30px;
         }
+        .content__item--desc {
+          opacity: 0;
+        }
+        &.content__item--active {
+          .content__item--desc {
+            opacity: 1;
+          }
+        }
         .card__item--info::after {
           content: "";
           position: absolute;
@@ -125,13 +133,12 @@
           bottom: 0;
           right: 0;
           background-color: hsla(0, 0%, 42%, 1);
-          opacity: 0;
-          transition: opacity .5s;
-          &.blur { opacity: 1; }
           &::before {
+            opacity: 0;
+            transition: opacity .5s;
             content: '';
-            position: absolute;
             display: block;
+            position: absolute;
             top: 0;
             left: 0;
             right: 0;
@@ -139,9 +146,15 @@
             background-blend-mode: multiply;
             background-color: hsla(0, 0%, 42%, .3);
           }
-          img {
-            width: 100%;
-            filter: blur(50px);
+          &.blur { 
+            &::before {
+              opacity: 1;
+            }
+            img {
+              transition: filter .5s;
+              width: 100%;
+              filter: blur(50px);
+            }
           }
       }
     }
