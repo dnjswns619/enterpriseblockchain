@@ -1401,3 +1401,87 @@ body {
 .use__desc .Text {
   font-size: 24px;
 }
+
+.ground {
+  overflow: hidden;
+  position: relative;
+  padding: 0 100px;
+}
+.ground__wrap {
+  padding: 200px 0;
+}
+.ground__title {
+  margin-bottom: 34px;
+  font-size: 72px;
+}
+.ground__desc {
+  margin-bottom: 70px;
+  font-size: 24px;
+}
+.ground__btnWrap {
+  display: flex;
+  gap: 18px;
+}
+.ground__btnWrap .ground__button {
+  padding: 10px 20px;
+  border: 2px solid #000;
+  font-size: 18px;
+  text-decoration: none;
+}
+.ground__btnWrap .ground__button--download {
+  background-color: #000;
+  color: #fff;
+}
+.ground__join {
+  display: flex;
+  position: absolute;
+  left: -33.3333333333vw;
+  bottom: -60px;
+  animation: joinLTR 6s infinite linear;
+  transition: bottom 0.5s linear;
+}
+.ground__join.active {
+  bottom: 0;
+}
+.ground__join--item {
+  display: flex;
+  justify-content: center;
+  width: 11.1111111111vw;
+  padding: 10px 0;
+  font-size: 24px;
+  color: #fff;
+}
+.ground__join--item:nth-child(3n-2) {
+  background-color: #00bf41;
+}
+.ground__join--item:nth-child(3n-1) {
+  background-color: #0049ff;
+}
+.ground__join--item:nth-child(3n) {
+  background-color: #e657af;
+}
+.ground__join--item span {
+  font-style: italic;
+}
+.ground__join--item .join__item--text {
+  position: relative;
+  z-index: 2;
+}
+.ground__join::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+}
+@keyframes joinLTR {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(33.3333333333vw);
+  }
+}
