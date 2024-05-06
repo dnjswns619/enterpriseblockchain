@@ -376,3 +376,18 @@ const useContChangeOpacity = gsap.timeline({
   },
   ease: "none"
 })
+// footer 진입시 groundsSection join 나오게 하기
+const groundSection = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".footer",
+    start: "top bottom",
+    end: "bottom top",
+    // markers: true,
+    onEnter: () => {
+      $(".ground__join").addClass("active");
+    },
+    onLeaveBack: () => {
+      $(".ground__join").removeClass("active");
+    }
+  }
+})

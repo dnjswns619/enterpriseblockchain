@@ -33,7 +33,7 @@
     left: calc((100vw / 9) * -3);
     bottom: -60px;
     animation: joinLTR 6s infinite linear;
-    transition: bottom .5s linear;
+    transition: bottom .3s linear;
     &.active { bottom: 0; }
     &--item{
       display: flex;

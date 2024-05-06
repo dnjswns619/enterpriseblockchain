@@ -1438,7 +1438,7 @@ body {
   left: -33.3333333333vw;
   bottom: -60px;
   animation: joinLTR 6s infinite linear;
-  transition: bottom 0.5s linear;
+  transition: bottom 0.3s linear;
 }
 .ground__join.active {
   bottom: 0;
@@ -1484,4 +1484,8 @@ body {
   100% {
     transform: translateX(33.3333333333vw);
   }
+}
+
+.footer {
+  height: 200px;
 }
