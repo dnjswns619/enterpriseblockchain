@@ -46,7 +46,7 @@ mainSection
 // section--keyword
 const keywordSection = gsap.timeline({
   scrollTrigger: {
-    trigger: ".keywordCont--wrap",
+    trigger: ".keyword__wrap",
     start: "top top",
     end: "100% 100%",
     scrub: 0,
@@ -54,20 +54,20 @@ const keywordSection = gsap.timeline({
   }
 })
 keywordSection
-.to(".keywordCont", {"--background-color": "rgba(0, 0, 0, .6)"}, "b")
-.to(".keywordCont--text", {autoAlpha: 1}, "b")
-.to(".keywordCont--text .text:nth-child(1)", {xPercent: 100}, "c")
-.to(".keywordCont--text .text:nth-child(3)", {xPercent: -100}, "c")
-.to(".keywordCont", {"--background-color": "rgba(0, 0, 0, 0)"}, "c")
-.to(".keywordCont--text", {autoAlpha: 0})
-.to(".keywordCont--bg .bg1", {yPercent: -100})
-.to(".keywordCont--bg .bg2", {yPercent: -100})
-.to(".keywordCont", {"--background-color": "rgba(0, 0, 0, .6)"}, "d")
-.to(".keywordCont > .text", {autoAlpha: 1}, "d")
+.to(".keyword__cont", {"--background-color": "rgba(0, 0, 0, .6)"}, "b")
+.to(".keyword__cont--text", {autoAlpha: 1}, "b")
+.to(".keyword__cont--text .text:nth-child(1)", {xPercent: 100}, "c")
+.to(".keyword__cont--text .text:nth-child(3)", {xPercent: -100}, "c")
+.to(".keyword__cont", {"--background-color": "rgba(0, 0, 0, 0)"}, "c")
+.to(".keyword__cont--text", {autoAlpha: 0})
+.to(".keyword__cont--bg .bg1", {yPercent: -100})
+.to(".keyword__cont--bg .bg2", {yPercent: -100})
+.to(".keyword__cont", {"--background-color": "rgba(0, 0, 0, .6)"}, "d")
+.to(".keyword__cont > .text", {autoAlpha: 1}, "d")
 
 // header 비활성화
 ScrollTrigger.create({
-  trigger: ".descCont__top",
+  trigger: ".desc__topCont",
   start: "top top",
   // markers: true,
   onEnter: () => {
@@ -81,7 +81,7 @@ ScrollTrigger.create({
 // section--desc
 const descSection = gsap.timeline({
   scrollTrigger: {
-    trigger: ".descCont__bottom",
+    trigger: ".desc__bottomCont",
     start: "0% 80%",
     end: "0% 20%",
     scrub: 1,
@@ -89,14 +89,14 @@ const descSection = gsap.timeline({
   },
 })
 descSection
-.to(".descCont__bottom", {"--progress-width": "20%"}, "e")
-.to(".descCont__bottom--text .text:nth-child(1)", {xPercent: -100}, "e")
-.to(".descCont__bottom--text .text:nth-child(3)", {xPercent: 100}, "e")
+.to(".desc__bottomCont", {"--progress-width": "20%"}, "e")
+.to(".desc__bottomCont--text .text:nth-child(1)", {xPercent: -100}, "e")
+.to(".desc__bottomCont--text .text:nth-child(3)", {xPercent: 100}, "e")
 
 // section--possibility 진입시 백그라운드 black
 const backgroundDark = gsap.timeline({
   scrollTrigger: {
-    trigger: ".possibilityCont",
+    trigger: ".possibility__cont",
     start: "0% 50%",
     // markers: true,
     onEnter: () => {
@@ -113,7 +113,7 @@ const backgroundDark = gsap.timeline({
 // section--possibility
 const possibilitySection = gsap.timeline({
   scrollTrigger: {
-    trigger: "#section--possibility",
+    trigger: ".possibility",
     start: "top top",
     end: "bottom bottom",
     scrub: 0,
@@ -124,7 +124,7 @@ const possibilitySection = gsap.timeline({
   ease: "none"
 })
 possibilitySection
-.to(".possibilityCont", {x: () => -window.innerWidth - 285})
+.to(".possibility__cont", {x: () => -window.innerWidth - 285})
 
 // section--feature
 const featureSection = gsap.timeline({

@@ -1,23 +1,23 @@
-#section--possibility {
+.possibility {
   width: 100%;
   height: 400vh;
-  .possibilityCont__wrap {
+  .possibility__wrap {
     @include sticky;
     width: 100%;
     height: 100vh;
     overflow-x: hidden;
   }
-  .possibilityCont {
+  .possibility__cont {
     display: flex;
     align-items: center;
     gap: 160px;
     height: 100vh;
     padding: 0 0 0 100px;
-    &__tit {
+    &--tit {
       font-size: $middle-text;
       color: #fff;
     }
-    &__item {
+    &--item {
       display: flex;
       gap: 75px;
       .item__box {
@@ -58,7 +58,7 @@
         
       }
     }
-    &__graphic {
+    &--graphic {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -96,12 +96,12 @@
         }
       }
     }
-    &__desc {
+    &--desc {
       position: absolute;
       left: 0;
       bottom: 4vh;
       padding: 0 100px;
-      &--text {
+      .desc--text {
         font-size: 14px;
         color: rgba($color: #fff, $alpha: 0.6);
       }
