@@ -1,3 +1,24 @@
 .footer {
-  height: 200px;
+  padding: 0 100px;
+  background-color: #000;
+  &__wrap {
+    display: flex;
+    justify-content: space-between;
+    padding: 60px 0;
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: normal;
+    color: #fff;
+  }
+  &__icon {
+    width: 192px;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
 }
