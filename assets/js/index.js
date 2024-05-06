@@ -32,15 +32,15 @@ const mainSection = gsap.timeline({
 })
 mainSection
 .set(".header", {yPercent: -100})
-.to(".main__cont", {"--background-color": "rgba(0, 0, 0, .6)"}, "a")
-.to(".main__cont .text:nth-of-type(1)", {autoAlpha: 1}, "a")
+.to(".main__content", {"--background-color": "rgba(0, 0, 0, .6)"}, "a")
+.to(".main__content .text:nth-of-type(1)", {autoAlpha: 1}, "a")
 .to(".header", {yPercent: 0, visibility: "visible"}, "a")
-.to(".main__cont .text:nth-of-type(1)", {autoAlpha: 0})
-.to(".main__cont .text:nth-of-type(2)", {autoAlpha: 1})
-.to(".main__cont .text:nth-of-type(2)", {autoAlpha: 0})
-.to(".main__cont .text:nth-of-type(3)", {autoAlpha: 1})
-.to(".main__cont .text:nth-of-type(3)", {autoAlpha: 0})
-.to(".main__cont .text:nth-of-type(4)", {autoAlpha: 1})
+.to(".main__content .text:nth-of-type(1)", {autoAlpha: 0})
+.to(".main__content .text:nth-of-type(2)", {autoAlpha: 1})
+.to(".main__content .text:nth-of-type(2)", {autoAlpha: 0})
+.to(".main__content .text:nth-of-type(3)", {autoAlpha: 1})
+.to(".main__content .text:nth-of-type(3)", {autoAlpha: 0})
+.to(".main__content .text:nth-of-type(4)", {autoAlpha: 1})
 .to(".ic-arrow", {autoAlpha: 0})
 
 // section--keyword

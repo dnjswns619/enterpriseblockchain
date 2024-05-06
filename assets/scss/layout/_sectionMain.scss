@@ -4,7 +4,7 @@
     width: 100%;
     height: 600vh;
   }
-  &__cont {
+  &__content {
     @include sticky;
     width: 100%;
     height: 100vh;
@@ -22,6 +22,13 @@
       left: 50%;
       bottom: 50px;
       transform: translateX(-50%);
+    }
+  }
+  @media screen and (min-width: 751px) {
+    &__content {
+      &--text {
+        white-space: noWrap;
+      }
     }
   }
 }
