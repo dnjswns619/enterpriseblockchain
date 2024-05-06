@@ -360,7 +360,7 @@ const useSection = gsap.timeline({
   ease: "none"
 })
 useSection
-.to(".use__wrap--sticky", {x: () => -(window.innerWidth - 700)})
+.to(".use__wrap--sticky", {x: () => -(window.innerWidth - 950)})
 // useSection 화면에 진입시 블러처리 / 텍스트 보이기
 const useContChangeOpacity = gsap.timeline({
   scrollTrigger: {
@@ -368,7 +368,7 @@ const useContChangeOpacity = gsap.timeline({
     start: "top 30%",
     end: "bottom bottom",
     scrub: 0,
-    markers: true,
+    // markers: true,
     onEnter: () => {
       $(".use .img").addClass("blur");
       $(".use .card__item:nth-child(1)").addClass("content__item--active");
