@@ -1487,5 +1487,26 @@ body {
 }
 
 .footer {
-  height: 200px;
+  padding: 0 100px;
+  background-color: #000;
+}
+.footer__wrap {
+  display: flex;
+  justify-content: space-between;
+  padding: 60px 0;
+}
+.footer__info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: normal;
+  color: #fff;
+}
+.footer__icon {
+  width: 192px;
+}
+.footer__icon img {
+  width: 100%;
+  height: auto;
 }
