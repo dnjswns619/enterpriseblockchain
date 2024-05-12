@@ -17,15 +17,25 @@
       height: 100vh;
       padding-left: 100px;
     }
+    &--title {
+      font-size: $middle-text;
+      color: #fff;
+    }
+    @media screen and (min-width: 751px) and (max-width: 1024px) {
+      &--cont {
+        padding-left: 60px;
+      }
+      &--title {
+        font-size: $tablet_middle-text;
+      }
+    }
   }
-  &__title {
-    font-size: $middle-text;
-    color: #fff;
-  }
+
   .card {
     display: flex;
     gap: 40px;
     &__item {
+      position: relative;
       width: 400px;
       height: 540px;
       padding: 34px;
@@ -56,7 +66,10 @@
       &--info {
         display: flex;
         align-items: center;
-        position: relative;
+        position: absolute;
+        bottom: 34px;
+        left: 34px;
+        right: 34px;
         font-size: 24px;
         color: #fff;
         &::after {
@@ -87,6 +100,46 @@
         }
       }
     }
+    @media (max-width: 1440px) {
+      &__item {
+        width: 303px;
+        height: 408px;
+        padding: 24px;
+        &--tit {
+          height: 72px;
+          font-size: 36px;
+        }
+        &--content {
+          margin: 28px 0;
+        }
+        &--info {
+          bottom: 24px;
+          left: 24px;
+          right: 24px;
+          font-size: 1rem;
+        }
+        &--lock {
+          position: relative;
+          padding: 0;
+          @include borderGradient;
+          .icon__wrap {
+            &--img {
+              opacity: 0;
+              @include positionCenter;
+              width: 150px;
+              height: auto;
+              &.open {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+      &__item {
+        width: 303px;
+        height: 408px;
+      }
+    }
   }
   &__main {
     overflow: hidden;
@@ -97,7 +150,7 @@
     width: 100%;
     height: 410vh;
     margin-top: -100vh;
-    padding: 0 100px;
+    @include contInnerPadding;
     .card__item--sticky {
       display: flex;
       align-items: center;
