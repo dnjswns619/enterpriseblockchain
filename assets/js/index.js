@@ -1,6 +1,7 @@
 const lenis = new Lenis()
 
 lenis.on('scroll', ScrollTrigger.update)
+window.addEventListener('resize', ScrollTrigger.update);
 
 gsap.ticker.add((time)=>{
   lenis.raf(time * 1000)
@@ -113,13 +114,11 @@ const backgroundDark = gsap.timeline({
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if(entry.isIntersecting) { // 요소가 현재 뷰포트에 노출되어 있는지 확인
-      entry.target.classList.add("on"); // 20%이상 보였을 때 실행시킬 코드
-      console.log(11111);
+      entry.target.classList.add("on"); // 50%이상 보였을 때 실행시킬 코드
     } else {
       entry.target.classList.remove("on");
-      console.log(222222);
     }
-  }, {threshold: 0.5}) // 대상 요소가 20% 이상 보였을 때 작동
+  }, {threshold: 0.5}) // 대상 요소가 50% 이상 보였을 때 작동
 })
 
 const header = document.querySelectorAll(".header");
@@ -163,26 +162,50 @@ featureSection
 .to(".feature__title", {autoAlpha:1})
 
 // section--service
-const serviceTitle = document.querySelector(".service__title")
+const serviceTitle = document.querySelector(".service__top--title")
+let serviceTitleWidth;
 const serviceSection = gsap.timeline({
   scrollTrigger: {
     trigger: ".service",
     start: "0% 0%",
     end: "33% bottom",
     scrub: 0,
-    // markers: true
+    InvalidateOnRefresh: true,
+    // markers: true,
   }
 })
 // section : service-top
-const cards = gsap.utils.toArray(".service__top .card__item");
-serviceSection.to(".service__top--cont", { x: () => -(serviceTitle.offsetWidth + 160) })
-cards.forEach((card, idx) => {
-  return serviceSection.to(card, { x: () => -(card.offsetWidth + 40) * idx, delay: 0.1 }, "g")
-})
-serviceSection
-.to(".icon__wrap--img.open", {autoAlpha: 0}, "g")
-.to(".icon__wrap--img.lock", {autoAlpha: 1}, "g+=0.3")
-.to(".icon__wrap--img.lock", {autoAlpha: 0})
+// 반응형에따라 컨텐츠의 크기가 달라졌을 경우 크기를 다시 감지하여 가로스크롤 적용
+ScrollTrigger.matchMedia({
+  "(min-width: 768px)": function() {
+    serviceTitleWidth = serviceTitle.clientWidth;
+    serviceSection.to(".service__top--cont", { x: () => {
+      return -(serviceTitleWidth + 160);
+    } })
+    const cards = gsap.utils.toArray(".service__top .card__item");
+    cards.forEach((card, idx) => {
+      return serviceSection.to(card, { x: () => -(card.offsetWidth + 40) * idx, delay: 0.1 }, "g")
+    })
+    serviceSection
+    .to(".icon__wrap--img.open", {autoAlpha: 0}, "g")
+    .to(".icon__wrap--img.lock", {autoAlpha: 1}, "g+=0.3")
+    .to(".icon__wrap--img.lock", {autoAlpha: 0})
+  },
+  "(max-width: 767px)": function() {
+    serviceTitleWidth = serviceTitle.clientWidth;
+    serviceSection.to(".service__top--cont", { x: () => {
+      return -(serviceTitleWidth + 160);
+    } })
+    const cards = gsap.utils.toArray(".service__top .card__item");
+    cards.forEach((card, idx) => {
+      return serviceSection.to(card, { x: () => -(card.offsetWidth + 40) * idx, delay: 0.1 }, "g")
+    })
+    serviceSection
+    .to(".icon__wrap--img.open", {autoAlpha: 0}, "g")
+    .to(".icon__wrap--img.lock", {autoAlpha: 1}, "g+=0.3")
+    .to(".icon__wrap--img.lock", {autoAlpha: 0})
+  }
+});
 
 // section : service-main
 const serviceMainsection = gsap.timeline({
