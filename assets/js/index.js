@@ -110,6 +110,23 @@ const backgroundDark = gsap.timeline({
   }
 })
 
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if(entry.isIntersecting) { // 요소가 현재 뷰포트에 노출되어 있는지 확인
+      entry.target.classList.add("on"); // 20%이상 보였을 때 실행시킬 코드
+      console.log(11111);
+    } else {
+      entry.target.classList.remove("on");
+      console.log(222222);
+    }
+  }, {threshold: 0.5}) // 대상 요소가 20% 이상 보였을 때 작동
+})
+
+const header = document.querySelectorAll(".header");
+header.forEach((poster) => {
+  observer.observe(poster);
+})
+
 // section--possibility
 const possibilitySection = gsap.timeline({
   scrollTrigger: {
@@ -123,8 +140,10 @@ const possibilitySection = gsap.timeline({
   },
   ease: "none"
 })
+const possibilityItem = document.querySelector(".possibility__cont--item");
+const possibilityItemWidth = possibilityItem.clientWidth;
 possibilitySection
-.to(".possibility__cont", {x: () => -window.innerWidth - 285})
+.to(".possibility__cont", {x: () => -possibilityItemWidth * 1.5})
 
 // section--feature
 const featureSection = gsap.timeline({
