@@ -20,6 +20,15 @@
   top: 0;
   left: 0;
 }
+@mixin contInnerPadding {
+  padding: 0 100px;
+  @media screen and (min-width: 751px) and (max-width: 1024px) {
+    padding: 0 60px;
+  }
+  @media screen and (max-width: 750px) {
+    padding: 0 24px;
+  }
+}
 @mixin beforeBgCont {
   content: "";
   position: absolute;

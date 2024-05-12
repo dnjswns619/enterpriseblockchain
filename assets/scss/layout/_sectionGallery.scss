@@ -1,8 +1,7 @@
 .gallery {
   &__wrap {
     width: 100%;
-    height: 500vh;
-    padding: 0 100px;
+    @include contInnerPadding;
   }
   &__cont {
     display: flex;
@@ -10,10 +9,8 @@
       display: flex;
       align-items: center;
       flex-shrink: 0;
-      position: sticky;
-      top: 0;
-      left: 0;
-      width: 470px;
+      @include sticky;
+      flex: 0 0 470px;
       height: 100vh;
       .text {
         font-size: $middle-text;
@@ -42,6 +39,24 @@
         &--title {
           margin-top: 15px;
           font-weight: 600;
+        }
+      }
+    }
+  }
+  @media screen and (min-width: 751px) and (max-width: 1024px) {
+    &__cont {
+      &--left {
+        flex: 0 0 290px;
+        .text {
+          font-size: 40px;
+        }
+      }
+      &--right {
+        flex: 0 0 calc(100% - 290px);
+      }
+      .cont__right {
+        .right__box {
+          height: auto;
         }
       }
     }
