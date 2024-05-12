@@ -1,21 +1,22 @@
 .desc {
   &__topCont {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
     width: 100%;
     height: 100vh;
-    padding: 0 100px;
+    @include contInnerPadding;
     & > * {
       width: 50%;
     }
     &--tit {
-      padding-bottom: 15%;
       font-size: $middle-text;
       line-height: 1.28em;
       font-weight: bold;
     }
     &--text {
-      padding-top: 15%;
+      margin-left: auto;
+      line-height: 1.7;
     }
   }
   &__bottomCont {
@@ -48,6 +49,28 @@
         font-size: $middle-text;
         &:nth-child(3) {
           margin-left: auto;
+        }
+      }
+    }
+  }
+  @media screen and (min-width: 751px) and (max-width: 1024px) {
+    &__topCont {
+      &--tit {
+        font-size: 40px;
+      }
+      &--text {
+        padding-left: 40px;
+        .text{
+          &.small {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+    &__bottomCont {
+      &--text {
+        .text {
+          font-size: 40px;
         }
       }
     }

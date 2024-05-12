@@ -40,4 +40,10 @@
     color: #fff;
     white-space: noWrap;
   }
+  @media screen and (min-width: 751px) {
+    &__title {
+      font-size: 24px;
+      line-height: 1.25;
+    }
+}
 }

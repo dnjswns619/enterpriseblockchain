@@ -7,7 +7,7 @@
   left: 0;
   width: 100%;
   z-index: 1;
-  padding: 0 100px;
+  @include contInnerPadding;
   visibility: hidden;
   .logo {
     a{
@@ -66,11 +66,6 @@
         filter: invert(1);
       }
     }
-  }
-}
-@media screen and (min-width: 751px) and (max-width: 1024px) {
-  .header {
-    padding: 0 60px;
   }
 }
 .dark .header .gnb__list--item,

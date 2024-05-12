@@ -1,5 +1,5 @@
 .footer {
-  padding: 0 100px;
+  @include contInnerPadding;
   background-color: #000;
   &__wrap {
     display: flex;
