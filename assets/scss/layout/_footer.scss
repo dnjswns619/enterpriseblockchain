@@ -22,4 +22,14 @@
       height: auto;
     }
   }
+  @media screen and (min-width: 751px) and (max-width: 1024px) {
+    &__wrap {
+      flex-direction: column-reverse;
+      gap: 44px;
+      padding: 36px 0;
+    }
+    &__icon {
+      width: 154px;
+    }
+  }
 }

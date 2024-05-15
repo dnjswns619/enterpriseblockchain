@@ -1317,6 +1317,7 @@ body {
   padding-left: 100px;
 }
 .desc-2__bottom {
+  overflow: hidden;
   position: relative;
   width: 100%;
   height: 70vh;
@@ -1351,6 +1352,36 @@ body {
 }
 .desc-2__bottom--text .text:nth-child(3) {
   margin-left: auto;
+}
+@media screen and (min-width: 751px) and (max-width: 1024px) {
+  .desc-2__top {
+    flex-direction: column;
+    align-items: normal;
+  }
+  .desc-2__top--tit {
+    padding-bottom: 0;
+    font-size: 40px;
+    line-height: 1.28em;
+    font-weight: bold;
+  }
+  .desc-2__top--text {
+    padding-top: 0;
+    padding-left: 30px;
+    margin-left: auto;
+  }
+  .desc-2__top--text .text {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+  .desc-2__top--text .text br {
+    display: none;
+  }
+  .desc-2__bottom {
+    background: url(../images/sc-desc2.jpg) center/cover no-repeat;
+  }
+  .desc-2__bottom--text .text {
+    font-size: 30px;
+  }
 }
 
 .finance {
@@ -1549,6 +1580,57 @@ body {
     opacity: 1;
   }
 }
+@media (max-width: 1440px) {
+  .finance__item {
+    display: flex;
+    gap: 24px;
+  }
+  .finance .card__item {
+    width: 303px;
+    height: 408px;
+    padding: 24px;
+  }
+  .finance .card__item--tit {
+    font-size: 36px;
+  }
+  .finance .card__item--content {
+    margin-top: 32px;
+  }
+  .finance .card__item--content .content__wrap {
+    gap: 24px;
+  }
+  .finance .card__item--content .content__item--tit {
+    font-size: 14px;
+  }
+  .finance .card__item--info {
+    left: 24px;
+    bottom: 24px;
+    width: calc(100% - 48px);
+    color: #fff;
+  }
+  .finance .card__item--info::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: url(../images/card-icon.png) center/contain no-repeat;
+  }
+}
+@media screen and (min-width: 751px) and (max-width: 1024px) {
+  .finance__wrap--sticky {
+    gap: 80px;
+  }
+  .finance__title .Text {
+    font-size: 40px;
+  }
+  .finance__desc .Text {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+}
 
 .creator {
   height: 300vh;
@@ -1576,6 +1658,25 @@ body {
 }
 .creator__intro--desc {
   font-size: 24px;
+}
+@media screen and (min-width: 751px) and (max-width: 1024px) {
+  .creator__wrap {
+    background: url(../images/creator.jpg) center/cover no-repeat;
+  }
+  .creator__intro {
+    left: 80px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+  }
+  .creator__intro--title {
+    margin-bottom: 25px;
+    font-size: 40px;
+    line-height: 1.2;
+  }
+  .creator__intro--desc {
+    font-size: 1rem;
+  }
 }
 
 .use {
@@ -1745,6 +1846,51 @@ body {
 .use__desc .Text {
   font-size: 24px;
 }
+@media (max-width: 1440px) {
+  .use .card__item {
+    width: 303px;
+    height: 403px;
+    padding: 24px;
+  }
+  .use .card__item--tit {
+    font-size: 36px;
+  }
+  .use .card__item--content {
+    margin-top: 24px;
+  }
+  .use .card__item--content .content__wrap {
+    gap: 16px;
+  }
+  .use .card__item--content .content__item {
+    gap: 4px;
+  }
+  .use .card__item--content .content__item--tit {
+    font-size: 20px;
+  }
+  .use .card__item--content .content__item--desc {
+    font-size: 14px;
+  }
+  .use .card__item--info {
+    left: 24px;
+    bottom: 24px;
+    width: calc(100% - 48px);
+  }
+}
+@media screen and (min-width: 751px) and (max-width: 1024px) {
+  .use__wrap--sticky {
+    gap: 80px;
+  }
+  .use__title .Text {
+    font-size: 40px;
+  }
+  .use__item {
+    display: flex;
+    gap: 40px;
+  }
+  .use__desc .Text {
+    font-size: 1rem;
+  }
+}
 
 .ground {
   overflow: hidden;
@@ -1831,6 +1977,22 @@ body {
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
 }
+@media screen and (min-width: 751px) and (max-width: 1024px) {
+  .ground__title {
+    font-size: 40px;
+  }
+  .ground__desc {
+    font-size: 1rem;
+  }
+  .ground__join {
+    left: -100vw;
+    animation: mobileJoinLTR 12s infinite linear;
+  }
+  .ground__join--item {
+    width: 25vw;
+    font-size: 1rem;
+  }
+}
 
 @keyframes joinLTR {
   0% {
@@ -1838,6 +2000,14 @@ body {
   }
   100% {
     transform: translateX(33.3333333333vw);
+  }
+}
+@keyframes mobileJoinLTR {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100vw);
   }
 }
 .footer {
@@ -1874,4 +2044,14 @@ body {
 .footer__icon img {
   width: 100%;
   height: auto;
+}
+@media screen and (min-width: 751px) and (max-width: 1024px) {
+  .footer__wrap {
+    flex-direction: column-reverse;
+    gap: 44px;
+    padding: 36px 0;
+  }
+  .footer__icon {
+    width: 154px;
+  }
 }

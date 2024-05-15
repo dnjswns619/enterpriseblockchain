@@ -70,8 +70,28 @@
       -webkit-backdrop-filter: blur(30px);
     }
   }
+  @media screen and (min-width: 751px) and (max-width: 1024px) {
+    &__title {
+      font-size: $tablet_middle-text;
+    }
+    &__desc {
+      font-size: 1rem;
+    }
+    &__join {
+      left: calc((100vw / 4) * -4);
+      animation: mobileJoinLTR 12s infinite linear;
+      &--item{
+        width: calc(100vw / 4);
+        font-size: 1rem;
+      }
+    }
+  }
 }
 @keyframes joinLTR {
   0% { transform: translateX(0); }
   100% { transform: translateX(calc((100vw / 9) * 3)); }
+}
+@keyframes mobileJoinLTR {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc((100vw / 4) * 4)); }
 }
