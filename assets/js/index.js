@@ -111,18 +111,29 @@ const backgroundDark = gsap.timeline({
   }
 })
 
-const observer = new IntersectionObserver((entries) => {
+const header = document.querySelector(".header");
+let observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
+    console.log(entry.isIntersecting);
     if(entry.isIntersecting) { // 요소가 현재 뷰포트에 노출되어 있는지 확인
-      entry.target.classList.add("on"); // 50%이상 보였을 때 실행시킬 코드
-    } else {
-      entry.target.classList.remove("on");
+      header.classList.add("on");// 50%이상 보였을 때 실행시킬 코드
     }
   }, {threshold: 0.5}) // 대상 요소가 50% 이상 보였을 때 작동
 })
-
-const header = document.querySelectorAll(".header");
-header.forEach((poster) => {
+const possibilityContObserver = document.querySelectorAll(".possibility");
+possibilityContObserver.forEach((poster) => {
+  observer.observe(poster);
+})
+const challangeContObserver = document.querySelectorAll(".challange");
+challangeContObserver.forEach((poster) => {
+  observer.observe(poster);
+})
+const featureContObserver = document.querySelectorAll(".feature");
+featureContObserver.forEach((poster) => {
+  observer.observe(poster);
+})
+const serviceContObserver = document.querySelectorAll(".service");
+serviceContObserver.forEach((poster) => {
   observer.observe(poster);
 })
 
@@ -179,7 +190,6 @@ const serviceSection = gsap.timeline({
 ScrollTrigger.matchMedia({
   "(min-width: 768px)": function() {
     serviceTitleWidth = serviceTitle.clientWidth;
-    console.log(serviceTitle.clientWidth);
     serviceSection.to(".service__top--cont", { x: () => {
       return -(serviceTitleWidth + 160);
     } })
@@ -194,7 +204,6 @@ ScrollTrigger.matchMedia({
   },
   "(max-width: 767px)": function() {
     serviceTitleWidth = serviceTitle.clientWidth;
-    console.log(serviceTitle.clientWidth);
     serviceSection.to(".service__top--cont", { x: () => {
       return -(serviceTitleWidth + 160);
     } })
@@ -222,7 +231,7 @@ ScrollTrigger.matchMedia({
         start: "70% 50%",
         end: "100% 100%",
         scrub: 0,
-        markers: true
+        // markers: true
       },
       ease: "none",
     })
@@ -344,7 +353,18 @@ const backgroundWhite = gsap.timeline({
     },
   }
 })
-
+observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    console.log(entry.isIntersecting);
+    if(entry.isIntersecting) { // 요소가 현재 뷰포트에 노출되어 있는지 확인
+      header.classList.remove("on");// 50%이상 보였을 때 실행시킬 코드
+    }
+  }, {threshold: 0.5}) // 대상 요소가 50% 이상 보였을 때 작동
+})
+const desc2ContObserver = document.querySelectorAll(".desc-2");
+desc2ContObserver.forEach((poster) => {
+  observer.observe(poster);
+})
 // section--desc2
 const desc2Section = gsap.timeline({
   scrollTrigger: {
@@ -379,8 +399,17 @@ const financeSection = gsap.timeline({
   },
   ease: "none"
 })
-financeSection
-.to(".finance__wrap--sticky", {x: () => -window.innerWidth / 2})
+// 반응형에따라 컨텐츠의 크기가 달라졌을 경우 크기를 다시 감지하여 가로스크롤 적용
+ScrollTrigger.matchMedia({
+  "(min-width: 1440px)": function() {
+    const financeTitle = document.querySelector(".finance__title");
+    financeSection.to(".finance__wrap--sticky", {x: () => -(financeTitle.offsetWidth + 260)})
+  },
+  "(max-width: 1439px)": function() {
+    const financeItem = document.querySelector(".finance__item");
+    financeSection.to(".finance__wrap--sticky", {x: () => -(financeItem.offsetWidth + 80)})
+  }
+});
 // finance section 진입시 arrow 생성 / 50% 지났을때 텍스트 변경
 const financeArrow = gsap.timeline({
   scrollTrigger: {
@@ -434,8 +463,17 @@ const useSection = gsap.timeline({
   },
   ease: "none"
 })
-useSection
-.to(".use__wrap--sticky", {x: () => -(window.innerWidth - 950)})
+// 반응형에따라 컨텐츠의 크기가 달라졌을 경우 크기를 다시 감지하여 가로스크롤 적용
+ScrollTrigger.matchMedia({
+  "(min-width: 1440px)": function() {
+    const useTitle = document.querySelector(".use__title");
+    useSection.to(".use__wrap--sticky", {x: () => -(useTitle.offsetWidth + 260)})
+  },
+  "(max-width: 1439px)": function() {
+    const useItem = document.querySelector(".use__item");
+    useSection.to(".use__wrap--sticky", {x: () => -(useItem.offsetWidth)})
+  }
+});
 // useSection 화면에 진입시 블러처리 / 텍스트 보이기
 const useContChangeOpacity = gsap.timeline({
   scrollTrigger: {
