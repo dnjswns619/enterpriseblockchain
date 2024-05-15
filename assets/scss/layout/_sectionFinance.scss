@@ -183,4 +183,67 @@
       100% { opacity: 1;}
     }
   }
+  @media (max-width: 1440px) {
+    &__item {
+      display: flex;
+      gap: 24px;
+    }
+    .card {
+      &__item {
+        width: 303px;
+        height: 408px;
+        padding: 24px;
+        &--tit {
+          font-size: 36px;
+        }
+        &--content {
+          margin-top: 32px;
+          .content {
+            &__wrap {
+              gap: 24px;
+            }
+            &__item {
+              &--tit {
+                font-size: 14px;
+              }
+            }
+          }
+        }
+        &--info {
+          left: 24px;
+          bottom: 24px;
+          width: calc(100% - 48px);
+          color: #fff;
+          &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background: url(../images/card-icon.png) center / contain no-repeat;
+          }
+        }
+      }
+    }
+  }
+  @media screen and (min-width: 751px) and (max-width: 1024px) {
+    &__wrap {
+      &--sticky {
+        gap: 80px;
+      }
+    }
+    &__title {
+      .Text {
+        font-size: $tablet_middle-text;
+      }
+    }
+    &__desc {
+      .Text {
+        font-size: 1rem;
+        line-height: 1.75;
+      }
+    }
+  }
 }

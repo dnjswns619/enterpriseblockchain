@@ -22,4 +22,23 @@
       font-size: 24px;
     }
   }
+  @media screen and (min-width: 751px) and (max-width: 1024px) {
+    &__wrap {
+      background: url(../images/creator.jpg) center / cover no-repeat;
+    }
+    &__intro {
+      left: 80px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #fff;
+      &--title {
+        margin-bottom: 25px;
+        font-size: $tablet_middle-text;
+        line-height: 1.2;
+      }
+      &--desc {
+        font-size: 1rem;
+      }
+    }
+  }
 }
