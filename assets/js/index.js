@@ -179,6 +179,7 @@ const serviceSection = gsap.timeline({
 ScrollTrigger.matchMedia({
   "(min-width: 768px)": function() {
     serviceTitleWidth = serviceTitle.clientWidth;
+    console.log(serviceTitle.clientWidth);
     serviceSection.to(".service__top--cont", { x: () => {
       return -(serviceTitleWidth + 160);
     } })
@@ -193,6 +194,7 @@ ScrollTrigger.matchMedia({
   },
   "(max-width: 767px)": function() {
     serviceTitleWidth = serviceTitle.clientWidth;
+    console.log(serviceTitle.clientWidth);
     serviceSection.to(".service__top--cont", { x: () => {
       return -(serviceTitleWidth + 160);
     } })
@@ -203,11 +205,30 @@ ScrollTrigger.matchMedia({
     serviceSection
     .to(".icon__wrap--img.open", {autoAlpha: 0}, "g")
     .to(".icon__wrap--img.lock", {autoAlpha: 1}, "g+=0.3")
-    .to(".icon__wrap--img.lock", {autoAlpha: 0})
+    .set(".service__top .card__item--normal", {autoAlpha: 0})
+    .set(".service__top .card__item--lock", {top: "50%"}, "h")
+    .to(".service__top .card__item--lock", {width: 208, height: 280}, "h")
+    .to(".icon__wrap--img.lock", {autoAlpha: 0}, "h")
   }
 });
 
 // section : service-main
+// 테블릿 사이즈인 경우 .service__main에 있는 카드 크기 변화
+ScrollTrigger.matchMedia({
+  "(min-width: 751px) and (max-width: 1024px)": function() {
+    const serviceMainCardScale = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".service__main",
+        start: "70% 50%",
+        end: "100% 100%",
+        scrub: 0,
+        markers: true
+      },
+      ease: "none",
+    })
+    serviceMainCardScale.to(".service__main .card__item", {width: 303, height: 408})
+  }
+});
 const serviceMainsection = gsap.timeline({
   scrollTrigger: {
     trigger: ".service__main",
@@ -215,12 +236,12 @@ const serviceMainsection = gsap.timeline({
     end: "100% 100%",
     scrub: 0,
     onEnter: () => {
-      gsap.set(".service__main", {autoAlpha: 1}, "h");
-      gsap.set(".service__top", {autoAlpha: 0}, "h");
+      gsap.set(".service__main", {autoAlpha: 1}, "i");
+      gsap.set(".service__top", {autoAlpha: 0}, "i");
     },
     onLeaveBack: () => {
-      gsap.set(".service__main", {autoAlpha: 0}, "h");
-      gsap.set(".service__top", {autoAlpha: 1}, "h");
+      gsap.set(".service__main", {autoAlpha: 0}, "i");
+      gsap.set(".service__top", {autoAlpha: 1}, "i");
     }
   },
   ease: "none",
@@ -245,21 +266,33 @@ const serviceBottomSection = gsap.timeline({
     scrub: 0,
     // markers: true,
     onEnter: () => {
-      gsap.set(".service__bottom .card__item--lock", {autoAlpha: 1}, "i");
-      gsap.set(".service__main", {autoAlpha: 0}, "i");
+      gsap.set(".service__bottom .card__item--lock", {autoAlpha: 1}, "j");
+      gsap.set(".service__main", {autoAlpha: 0}, "j");
     },
     onLeaveBack: () => {
-      gsap.set(".service__bottom .card__item--lock", {autoAlpha: 0}, "i");
-      gsap.set(".service__main", {autoAlpha: 1}, "i");
+      gsap.set(".service__bottom .card__item--lock", {autoAlpha: 0}, "j");
+      gsap.set(".service__main", {autoAlpha: 1}, "j");
     }
   },
   ease: "none",
 })
 
-const bottomCards = gsap.utils.toArray(".service__bottom .card .card__item");
-bottomCards.forEach((card, idx) => {
-  return serviceBottomSection.to(card, { x: () => -(card.offsetWidth + 40) * idx, delay: 0.1 }, "j")
-})
+
+ScrollTrigger.matchMedia({
+  "(min-width: 751px) and (max-width: 1024px)": function() {
+    const bottomCards = gsap.utils.toArray(".service__bottom .card .card__item");
+    bottomCards.forEach((card, idx) => {
+      return serviceBottomSection.to(card, { x: () => -(card.offsetWidth + 40) * idx, delay: 0.1 }, "k")
+    })
+  },
+  "(min-width: 1025px)": function() {
+    const bottomCards = gsap.utils.toArray(".service__bottom .card .card__item");
+    bottomCards.forEach((card, idx) => {
+      return serviceBottomSection.to(card, { x: () => -(card.offsetWidth + 40) * idx, delay: 0.1 }, "k")
+    })
+  }
+});
+
 
 const serviceBottomCardBlur = gsap.timeline({
   scrollTrigger: {
@@ -282,12 +315,12 @@ const serviceFooterSection = gsap.timeline({
     scrub: 0,
     // markers: true,
     onEnter: () => {
-      gsap.set(".service__footer", {autoAlpha: 1}, "k");
-      gsap.set(".service__bottom", {autoAlpha: 0}, "k");
+      gsap.set(".service__footer", {autoAlpha: 1}, "l");
+      gsap.set(".service__bottom", {autoAlpha: 0}, "l");
     },
     onLeaveBack: () => {
-      gsap.set(".service__footer", {autoAlpha: 0}, "k");
-      gsap.set(".service__bottom", {autoAlpha: 1}, "k");
+      gsap.set(".service__footer", {autoAlpha: 0}, "l");
+      gsap.set(".service__bottom", {autoAlpha: 1}, "l");
     }
   },
   ease: "none",
@@ -323,9 +356,9 @@ const desc2Section = gsap.timeline({
   },
 })
 desc2Section
-.to(".desc-2__bottom", {"--progress-width": "20%"}, "e")
-.to(".desc-2__bottom--text .text:nth-child(1)", {xPercent: -100}, "e")
-.to(".desc-2__bottom--text .text:nth-child(3)", {xPercent: 100}, "e")
+.to(".desc-2__bottom", {"--progress-width": "20%"}, "m")
+.to(".desc-2__bottom--text .text:nth-child(1)", {xPercent: -100}, "m")
+.to(".desc-2__bottom--text .text:nth-child(3)", {xPercent: 100}, "m")
 
 // section--finance
 const financeSection = gsap.timeline({
