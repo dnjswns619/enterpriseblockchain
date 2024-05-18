@@ -1,14 +1,3 @@
-const lenis = new Lenis()
-
-lenis.on('scroll', ScrollTrigger.update)
-window.addEventListener('resize', ScrollTrigger.update);
-
-gsap.ticker.add((time)=>{
-  lenis.raf(time * 1000)
-})
-
-gsap.ticker.lagSmoothing(0)
-
 // header 활성화
 const sectionMain = document.querySelector(".main__wrap");
 ScrollTrigger.create({
