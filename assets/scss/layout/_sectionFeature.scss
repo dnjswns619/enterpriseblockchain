@@ -46,4 +46,20 @@
       line-height: 1.25;
     }
   }
+  @media screen and (max-width: 750px) {
+    &__bg {
+      flex-direction: column;
+      height: 360px;
+      & > span {
+        width: 100%;
+        &.feature__bg--pink { height: 33.33%; }
+        &.feature__bg--blue,
+        &.feature__bg--green { height: 10%; }
+      }
+    }
+    &__title {
+      font-size: 24px;
+      text-align: center;
+    }
+  }
 }
