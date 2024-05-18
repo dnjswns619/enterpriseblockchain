@@ -98,7 +98,7 @@ const gallerybehindSection = gsap.timeline({
     start: "65% 0%",
     end: "80% 0%",
     scrub: 0,
-    markers: true
+    // markers: true
   }
 })
 ScrollTrigger.matchMedia({
@@ -166,25 +166,61 @@ const possibilitySection = gsap.timeline({
 })
 const possibilityItem = document.querySelector(".possibility__cont--item");
 const possibilityItemWidth = possibilityItem.clientWidth;
-possibilitySection
-.to(".possibility__cont", {x: () => -possibilityItemWidth * 1.5})
+ScrollTrigger.matchMedia({
+  "(min-width: 751px)": function() {
+    possibilitySection
+    .to(".possibility__cont", {x: () => -possibilityItemWidth * 1.5})
+  },
+  "(max-width: 750px)": function() {
+    const possibilityItemBox = document.querySelector(".possibility__cont--item .item__box");
+    const possibilityItemBoxWidth = possibilityItemBox.offsetWidth;
+    const possibilityMobile = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".possibility",
+        start: "top top",
+        end: "40% 0%",
+        scrub: 0,
+        invalidateOnRefresh: true,
+        anticipatePin: 1,
+        markers: true,
+        pin: true
+      },
+      ease: "none"
+    })
+    possibilityMobile
+    .to(".possibility__cont--item", {x: () => -((possibilityItemBoxWidth * 2.5) + (75 * 3))})
+  }
+});
+
 
 // section--feature
 const featureSection = gsap.timeline({
   scrollTrigger: {
     trigger: ".feature",
-    start: "0% 100%",
-    end: "100% 35%",
+    start: "60% 100%",
+    end: "130% 60%",
     scrub: 0,
-    // markers: true
+    markers: true
   }
 })
-featureSection
-.from(".feature__bg--pink", {xPercent:-60}, "f")
-.from(".feature__bg--blue", {xPercent:-60}, "f")
-.from(".feature__bg--green", {xPercent:50}, "f")
-.to(".feature__bg", {"--opacity-value": 1})
-.to(".feature__title", {autoAlpha:1})
+ScrollTrigger.matchMedia({
+  "(min-width: 751px)": function() {
+    featureSection
+    .from(".feature__bg--pink", {xPercent:-60}, "f")
+    .from(".feature__bg--blue", {xPercent:-60}, "f")
+    .from(".feature__bg--green", {xPercent:50}, "f")
+    .to(".feature__bg", {"--opacity-value": 1})
+    .to(".feature__title", {autoAlpha:1})
+  },
+  "(max-width: 750px)": function() {
+    featureSection
+    .to(".feature__bg--blue", {height: "33.33%"}, "f")
+    .to(".feature__bg--green", {height: "33.33%"}, "f")
+    .to(".feature__bg", {"--opacity-value": 1})
+    .to(".feature__title", {autoAlpha:1})
+  }
+});
+
 
 // section--service
 const serviceTitle = document.querySelector(".service__top--title")
