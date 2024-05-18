@@ -137,6 +137,7 @@ body.scrollNone {
   margin: -1px;
 }
 
+.tablet_br,
 .mobile_br {
   display: none;
 }
@@ -145,6 +146,11 @@ body.scrollNone {
   .text {
     font-size: 26px;
   }
+  .tablet_br {
+    display: block;
+  }
+}
+@media screen and (max-width: 750px) {
   .mobile_br {
     display: block;
   }
@@ -224,6 +230,9 @@ body.scrollNone {
   filter: invert(1);
 }
 @media screen and (max-width: 750px) {
+  .header .logo a img {
+    width: 50px;
+  }
   .header .gnb {
     display: none;
   }
@@ -378,6 +387,17 @@ body.scrollNone {
     white-space: noWrap;
   }
 }
+@media screen and (max-width: 750px) {
+  .main__content--text {
+    max-width: 375px;
+    width: 100%;
+    padding: 0 24px;
+    font-size: 36px;
+  }
+  .main__content--text br:not(.mobile_br) {
+    display: none;
+  }
+}
 
 .keyword__wrap {
   width: 100%;
@@ -466,6 +486,15 @@ body.scrollNone {
     display: none;
   }
 }
+@media screen and (max-width: 750px) {
+  .keyword__cont--text .text {
+    font-size: 60px;
+  }
+  .keyword__cont > .text {
+    width: 100%;
+    font-size: 20px;
+  }
+}
 
 .desc__topCont {
   display: flex;
@@ -547,6 +576,32 @@ body.scrollNone {
     font-size: 40px;
   }
 }
+@media screen and (max-width: 750px) {
+  .desc__topCont {
+    gap: 24px;
+    height: auto;
+    padding: 120px 24px;
+  }
+  .desc__topCont--tit {
+    font-size: 44px;
+  }
+  .desc__topCont--text {
+    width: 100%;
+    margin-left: 0;
+  }
+  .desc__topCont--text .text.small {
+    font-size: 1rem;
+  }
+  .desc__topCont--text br {
+    display: none;
+  }
+  .desc__bottomCont::before, .desc__bottomCont::after {
+    height: 40px;
+  }
+  .desc__bottomCont--text .text {
+    font-size: 32px;
+  }
+}
 
 .gallery__wrap {
   width: 100%;
@@ -617,6 +672,32 @@ body.scrollNone {
   }
 }
 
+@media screen and (max-width: 750px) {
+  .gallery__cont {
+    position: relative;
+    height: 400vh;
+  }
+  .gallery__cont--left {
+    flex: 0 0 100%;
+  }
+  .gallery__cont--left .text {
+    font-size: 40px;
+  }
+  .gallery__cont--right {
+    flex: 0 0 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 300vh;
+  }
+  .gallery__cont .cont__right .right__box {
+    width: 77%;
+    height: auto;
+  }
+  .gallery__cont .cont__right .right__box:nth-child(1), .gallery__cont .cont__right .right__box:nth-child(2) {
+    margin-bottom: 180px;
+  }
+}
 .possibility {
   width: 100%;
   height: 400vh;

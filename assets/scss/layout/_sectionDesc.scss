@@ -75,4 +75,35 @@
       }
     }
   }
+  @media screen and (max-width: 750px) {
+    &__topCont {
+      gap: 24px;
+      height: auto;
+      padding: 120px 24px;
+      &--tit {
+        font-size: 44px;
+      }
+      &--text {
+        width: 100%;
+        margin-left: 0;
+        .text{
+          &.small {
+            font-size: 1rem;
+          }
+        }
+        br { display: none; }
+      }
+    }
+    &__bottomCont {
+      &::before,
+      &::after {
+        height: 40px;
+      }
+      &--text {
+        .text {
+          font-size: 32px;
+        }
+      }
+    }
+  }
 }

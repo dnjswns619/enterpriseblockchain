@@ -68,6 +68,13 @@
     }
   }
   @media screen and (max-width: 750px) {
+    .logo {
+      a{
+        img{
+          width: 50px;
+        }
+      }
+    }
     .gnb { display: none; }
     &__hamburger {
       display: flex;

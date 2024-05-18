@@ -66,4 +66,17 @@
       }
     }
   }
+  @media screen and (max-width: 750px) {
+    &__cont {
+      &--text {
+        .text {
+          font-size: 60px;
+        }
+      }
+      & > .text { 
+        width: 100%;
+        font-size: 20px;
+      }
+    }
+  }
 }
