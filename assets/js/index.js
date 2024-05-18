@@ -83,6 +83,31 @@ descSection
 .to(".desc__bottomCont--text .text:nth-child(1)", {xPercent: -100}, "e")
 .to(".desc__bottomCont--text .text:nth-child(3)", {xPercent: 100}, "e")
 
+const galleryFrontSection = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".gallery__cont",
+    start: "0% 0%",
+    end: "20% 0%",
+    scrub: 0,
+    // markers: true
+  }
+})
+const gallerybehindSection = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".gallery__cont",
+    start: "65% 0%",
+    end: "80% 0%",
+    scrub: 0,
+    markers: true
+  }
+})
+ScrollTrigger.matchMedia({
+  "(max-width: 750px)": function() {
+    galleryFrontSection.to(".gallery__cont--left .text", {autoAlpha: 0})
+    gallerybehindSection.to(".gallery__cont--left .text", {autoAlpha: 1})
+  }
+});
+
 // section--possibility 진입시 백그라운드 black
 const backgroundDark = gsap.timeline({
   scrollTrigger: {
