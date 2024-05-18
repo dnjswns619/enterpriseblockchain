@@ -17,37 +17,65 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.26/bundled/lenis.min.js"></script>
   <script src="./assets/js/index.js" defer></script>
+  <script src="./assets/js/header.js" defer></script>
   <title>엔터프라이즈블록체인</title>
 </head>
 <body>
   <div id="container">
     <header class="header">
       <h1 class="logo">
-          <a href="">
-              <img src="./assets/images/logo.svg" alt="엔터프라이즈블록체인">
-          </a>
+        <a href="">
+          <img src="./assets/images/logo.svg" alt="엔터프라이즈블록체인">
+        </a>
       </h1>
       <nav class="gnb">
-          <ul class="gnb__list">
-              <li class="gnb__list--item">
-                  <a href="">시나리오보기</a>
-              </li>
-              <li class="gnb__list--item">
-                  <a href="">제휴문의</a>
-              </li>
-              <li class="gnb__list--item">
-                  <button class="btn-lang">
-                      <svg class="icon" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> <g fill-rule="nonzero" fill="none"> <path stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 15h5v5H4zM9 15h5v5H9zM14 15h5v5h-5zM14 5h5v5h-5zM14 10h5v5h-5zM9 10h5v5H9zM4 10h5v5H4z"></path> </g> </svg>
-                      KR
-                      <svg class="arrow" width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg"> <path d="m2 4 3 2 3-2" stroke="#FFF" stroke-width="1.2" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path> </svg>                       
-                  </button>
-                  <ul class="lang-list">
-                      <li><a href="">KR</a></li>
-                      <li><a href="">EN</a></li>
-                  </ul>   
-              </li>
-          </ul>
+        <ul class="gnb__list">
+          <li class="gnb__list--item">
+            <a href="">시나리오보기</a>
+          </li>
+          <li class="gnb__list--item">
+            <a href="">제휴문의</a>
+          </li>
+          <li class="gnb__list--item">
+            <button class="btn-lang">
+              <svg class="icon" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> <g fill-rule="nonzero" fill="none"> <path stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 15h5v5H4zM9 15h5v5H9zM14 15h5v5h-5zM14 5h5v5h-5zM14 10h5v5h-5zM9 10h5v5H9zM4 10h5v5H4z"></path> </g> </svg>
+              KR
+              <svg class="arrow" width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg"> <path d="m2 4 3 2 3-2" stroke="#FFF" stroke-width="1.2" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path> </svg>                       
+            </button>
+            <ul class="lang-list">
+              <li><a href="">KR</a></li>
+              <li><a href="">EN</a></li>
+            </ul>   
+          </li>
+        </ul>
       </nav>
+      <div class="header__hamburger">
+        <button class="header__hamburger--wrap">
+          <span class="header__hamburger--item header__hamburger--top"></span>
+          <span class="header__hamburger--item header__hamburger--middle"></span>
+          <span class="header__hamburger--item header__hamburger--bottom"></span>
+        </button>
+      </div>
+      <div class="header__mobileMenu">
+        <ul class="header__mobileMenu--wrap">
+          <li class="header__mobileMenu--item item">
+            <a class="item__link" href="">시나리오보기</a>
+          </li>
+          <li class="header__mobileMenu--item item">
+            <a class="item__link" href="">제휴문의</a>
+          </li>
+          <li class="header__mobileMenu--item item">
+            <ul class="item__wrap">
+              <li>
+                <a class="item__link active" href="">KR</a>
+              </li>
+              <li>
+                <a class="item__link" href="">EN</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </header>
     <main>
       <section id="section--main" class="main">
