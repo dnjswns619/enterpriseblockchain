@@ -27,10 +27,14 @@ body {
   clip: rect(0,0,0,0);
   margin: -1px;
 }
+.tablet_br,
 .mobile_br { display: none; }
 @media screen and (min-width: 751px) and (max-width: 1024px) {
   .text {
     font-size: $tablet_small-text;
   }
+  .tablet_br { display: block; }
+}
+@media screen and (max-width: 750px) {
   .mobile_br { display: block; }
 }

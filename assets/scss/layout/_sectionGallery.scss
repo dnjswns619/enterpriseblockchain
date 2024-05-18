@@ -62,3 +62,34 @@
     }
   }
 }
+@media screen and (max-width: 750px) {
+  .gallery {
+    &__cont {
+      position: relative;
+      height: 400vh;
+      &--left {
+        flex: 0 0 100%;
+        .text {
+          font-size: $tablet_middle-text;
+        }
+      }
+      &--right {
+        flex: 0 0 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 300vh;
+      }
+      .cont__right {
+        .right__box {
+          width: 77%;
+          height: auto;
+          &:nth-child(1),
+          &:nth-child(2) {
+            margin-bottom: 180px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -32,4 +32,17 @@
       }
     }
   }
+  @media screen and (max-width: 750px) {
+    &__content {
+      &--text {
+        max-width: 375px;
+        width: 100%;
+        padding: 0 24px;
+        font-size: 36px;
+        br:not(.mobile_br) {
+          display: none;
+        }
+      }
+    }
+  }
 }
