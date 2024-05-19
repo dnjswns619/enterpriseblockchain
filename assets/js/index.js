@@ -182,7 +182,7 @@ ScrollTrigger.matchMedia({
         scrub: 0,
         invalidateOnRefresh: true,
         anticipatePin: 1,
-        markers: true,
+        // markers: true,
         pin: true
       },
       ease: "none"
@@ -200,7 +200,7 @@ const featureSection = gsap.timeline({
     start: "60% 100%",
     end: "130% 60%",
     scrub: 0,
-    markers: true
+    // markers: true
   }
 })
 ScrollTrigger.matchMedia({
@@ -238,7 +238,7 @@ const serviceSection = gsap.timeline({
 // section : service-top
 // 반응형에따라 컨텐츠의 크기가 달라졌을 경우 크기를 다시 감지하여 가로스크롤 적용
 ScrollTrigger.matchMedia({
-  "(min-width: 768px)": function() {
+  "(min-width: 751px)": function() {
     serviceTitleWidth = serviceTitle.clientWidth;
     serviceSection.to(".service__top--cont", { x: () => {
       return -(serviceTitleWidth + 160);
@@ -252,22 +252,14 @@ ScrollTrigger.matchMedia({
     .to(".icon__wrap--img.lock", {autoAlpha: 1}, "g+=0.3")
     .to(".icon__wrap--img.lock", {autoAlpha: 0})
   },
-  "(max-width: 767px)": function() {
-    serviceTitleWidth = serviceTitle.clientWidth;
-    serviceSection.to(".service__top--cont", { x: () => {
-      return -(serviceTitleWidth + 160);
-    } })
-    const cards = gsap.utils.toArray(".service__top .card__item");
-    cards.forEach((card, idx) => {
-      return serviceSection.to(card, { x: () => -(card.offsetWidth + 40) * idx, delay: 0.1 }, "g")
-    })
+  "(max-width: 750px)": function() {
+    const serviceTopCard = document.querySelector(".service__top--cont .card__item");
+    const serviceTopCardWidth = serviceTopCard.offsetWidth;
     serviceSection
+    .to(".service__top--cont .card", {x: () => -((serviceTopCardWidth * 3) + 80)})
     .to(".icon__wrap--img.open", {autoAlpha: 0}, "g")
     .to(".icon__wrap--img.lock", {autoAlpha: 1}, "g+=0.3")
-    .set(".service__top .card__item--normal", {autoAlpha: 0})
-    .set(".service__top .card__item--lock", {top: "50%"}, "h")
-    .to(".service__top .card__item--lock", {width: 208, height: 280}, "h")
-    .to(".icon__wrap--img.lock", {autoAlpha: 0}, "h")
+    .to(".service__top--cont .card", {autoAlpha: 0})
   }
 });
 
@@ -315,6 +307,21 @@ gsap.to(".service__main", {
   },
   "--progress-opacity": "1"
 })
+ScrollTrigger.matchMedia({
+  "(max-width: 750px)": function() {
+    const serviceSectionOpacityChange = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".service__main",
+        start: "0% 0%",
+        end: "20% 10%",
+        scrub: 0,
+        pin: true,
+        // markers: true
+      }
+    })
+    serviceSectionOpacityChange.from(".card__item--sticky .card__item", {xPercent: 5})
+  }
+});
 
 // section : service-bottom
 const serviceBottomSection = gsap.timeline({
@@ -338,17 +345,23 @@ const serviceBottomSection = gsap.timeline({
 
 
 ScrollTrigger.matchMedia({
+  "(min-width: 1025px)": function() {
+    const bottomCards = gsap.utils.toArray(".service__bottom .card .card__item");
+    bottomCards.forEach((card, idx) => {
+      return serviceBottomSection.to(card, { x: () => -(card.offsetWidth + 40) * idx, delay: 0.1 }, "k")
+    })
+  },
   "(min-width: 751px) and (max-width: 1024px)": function() {
     const bottomCards = gsap.utils.toArray(".service__bottom .card .card__item");
     bottomCards.forEach((card, idx) => {
       return serviceBottomSection.to(card, { x: () => -(card.offsetWidth + 40) * idx, delay: 0.1 }, "k")
     })
   },
-  "(min-width: 1025px)": function() {
-    const bottomCards = gsap.utils.toArray(".service__bottom .card .card__item");
-    bottomCards.forEach((card, idx) => {
-      return serviceBottomSection.to(card, { x: () => -(card.offsetWidth + 40) * idx, delay: 0.1 }, "k")
-    })
+  "(max-width: 750px)": function() {
+    serviceBottomSection.to(".service__bottom .card .card__item:nth-child(3)", { "--progress-btt1": 1 }, "n")
+    serviceBottomSection.to(".service__bottom .card .card__item:nth-child(4)", { "--progress-btt2": 1 }, "n")
+    serviceBottomSection.to(".service__bottom .card .card__item:nth-child(4)", { "--progress-btt2": 2 })
+    serviceBottomSection.to(".service__bottom .card", { autoAlpha: 0 })
   }
 });
 
@@ -384,8 +397,17 @@ const serviceFooterSection = gsap.timeline({
   },
   ease: "none",
 })
-serviceFooterSection
-.to(".service__footer", {"--progress-opacity": "1"})
+
+ScrollTrigger.matchMedia({
+  "(min-width: 751px)": function() {
+    serviceFooterSection.to(".service__footer", {"--progress-opacity": "1"})
+  },
+  "(max-width: 750px)": function() {
+    serviceFooterSection.set(".service__footer--content .card__item--lock", {autoAlpha: 0})
+    serviceFooterSection.to(".service__footer", {"--progress-opacity": "1"})
+    serviceFooterSection.to(".service__footer--content .card__item--lock", {autoAlpha: 1})
+  }
+});
 
 // section-desc-2 진입시 백그라운드 white
 const backgroundWhite = gsap.timeline({
@@ -425,10 +447,27 @@ const desc2Section = gsap.timeline({
     // markers: true,
   },
 })
-desc2Section
-.to(".desc-2__bottom", {"--progress-width": "20%"}, "m")
-.to(".desc-2__bottom--text .text:nth-child(1)", {xPercent: -100}, "m")
-.to(".desc-2__bottom--text .text:nth-child(3)", {xPercent: 100}, "m")
+ScrollTrigger.matchMedia({
+  "(min-width: 1025px)": function() {
+    desc2Section
+    .to(".desc-2__bottom", {"--progress-width": "20%"}, "m")
+    .to(".desc-2__bottom--text .text:nth-child(1)", {xPercent: -100}, "m")
+    .to(".desc-2__bottom--text .text:nth-child(3)", {xPercent: 100}, "m")
+  },
+  "(min-width: 751px) and (max-width: 1024px)": function() {
+    desc2Section
+    .to(".desc-2__bottom", {"--progress-width": "20%"}, "m")
+    .to(".desc-2__bottom--text .text:nth-child(1)", {xPercent: -80}, "m")
+    .to(".desc-2__bottom--text .text:nth-child(3)", {xPercent: 80}, "m")
+  },
+  "(max-width: 750px)": function() {
+    desc2Section
+    .to(".desc-2__bottom", {"--progress-width": "20%"}, "m")
+    .to(".desc-2__bottom--text .text:nth-child(1)", {xPercent: -40}, "m")
+    .to(".desc-2__bottom--text .text:nth-child(3)", {xPercent: 40}, "m")
+  }
+});
+
 
 // section--finance
 const financeSection = gsap.timeline({
@@ -455,7 +494,7 @@ ScrollTrigger.matchMedia({
     const financeTitle = document.querySelector(".finance__title");
     financeSection.to(".finance__wrap--sticky", {x: () => -(financeTitle.offsetWidth + 260)})
   },
-  "(max-width: 1439px)": function() {
+  "(min-width: 751px) and (max-width: 1439px)": function() {
     const financeItem = document.querySelector(".finance__item");
     financeSection.to(".finance__wrap--sticky", {x: () => -(financeItem.offsetWidth + 80)})
   }
@@ -484,6 +523,22 @@ const financeArrow = gsap.timeline({
   },
   ease: "none",
 })
+
+const financeDesc = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".finance__desc",
+    start: "-10% 50%",
+    end: "100% 60%",
+    scrub: 0,
+    markers: true,
+    onEnter: () => {
+      $(".finance .arrow").removeClass("on");
+    }
+  },
+  ease: "none",
+})
+
+financeDesc.to(".finance__desc", { autoAlpha: 1 })
 
 // section--creator
 const creatorSection = gsap.timeline({
