@@ -84,4 +84,35 @@
       }
     }
   }
+  @media screen and (max-width: 750px) {
+    &__top {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      &--tit {
+        width: 100%;
+        padding-bottom: 0;
+        font-size: 44px;
+      }
+      &--text {
+        width: 100%;
+        padding-top: 0;
+        padding-left: 0;
+        margin: 24px 0 0 0;
+        .text {
+          font-size: 1rem;
+          line-height: 1.75;
+          br { display: none; }
+        }
+      }
+    }
+    &__bottom {
+      background: url(../images/sc-desc2.jpg) center / cover no-repeat;
+      &--text {
+        .text {
+          font-size: 30px;
+        }
+      }
+    }
+  }
 }
