@@ -91,7 +91,7 @@
         position: absolute;
         transition: all .3s linear;
         height: 2px;
-        background-color: #fff;
+        background-color: #000;
       }
       &--top {
         top: 0;
@@ -180,3 +180,4 @@
     filter: invert(0);
     transition: filter .5s;
 }
+.header.on .header__hamburger--item { background-color: #fff; }

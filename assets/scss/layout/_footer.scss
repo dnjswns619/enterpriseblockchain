@@ -32,4 +32,14 @@
       width: 154px;
     }
   }
+  @media screen and (max-width: 750px) {
+    &__wrap {
+      flex-direction: column-reverse;
+      gap: 44px;
+      padding: 36px 0;
+    }
+    &__icon {
+      width: 154px;
+    }
+  }
 }

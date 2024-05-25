@@ -219,4 +219,45 @@
       }
     }
   }
+  @media screen and (max-width: 750px) {
+    &__wrap {
+      &--sticky {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+      }
+    }
+    &__title {
+      margin: 13vh 0 36px;
+      .Text {
+        font-size: $tablet_middle-text;
+      }
+    }
+    .card {
+      gap: 32px;
+      &__item {
+        width: 382px;
+        height: 504px;
+        &--content {
+          .content {
+            &__item {
+              &--desc {
+                font-size: 1rem;
+                br { display: none; }
+              }
+            }
+          }
+        }
+      }
+    }
+    &__desc {
+      margin-top: auto;
+      .Text {
+        font-size: 20px;
+        br {
+          display: none;
+        }
+      }
+    }
+  }
 }
