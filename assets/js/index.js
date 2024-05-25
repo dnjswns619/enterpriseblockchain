@@ -530,7 +530,7 @@ const financeDesc = gsap.timeline({
     start: "-10% 50%",
     end: "100% 60%",
     scrub: 0,
-    markers: true,
+    // markers: true,
     onEnter: () => {
       $(".finance .arrow").removeClass("on");
     }
@@ -574,9 +574,13 @@ ScrollTrigger.matchMedia({
     const useTitle = document.querySelector(".use__title");
     useSection.to(".use__wrap--sticky", {x: () => -(useTitle.offsetWidth + 260)})
   },
-  "(max-width: 1439px)": function() {
+  "(min-width: 751px) and (max-width: 1439px)": function() {
     const useItem = document.querySelector(".use__item");
     useSection.to(".use__wrap--sticky", {x: () => -(useItem.offsetWidth)})
+  },
+  "(max-width: 750px)": function() {
+    const useCardItem = document.querySelector(".use__item .card__item");
+    useSection.to(".use__item", {x: () => -((useCardItem.offsetWidth * 3) + 32)})
   }
 });
 // useSection 화면에 진입시 블러처리 / 텍스트 보이기
