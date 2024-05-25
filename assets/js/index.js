@@ -223,8 +223,7 @@ ScrollTrigger.matchMedia({
 
 
 // section--service
-const serviceTitle = document.querySelector(".service__top--title")
-let serviceTitleWidth;
+
 const serviceSection = gsap.timeline({
   scrollTrigger: {
     trigger: ".service",
@@ -238,10 +237,10 @@ const serviceSection = gsap.timeline({
 // section : service-top
 // 반응형에따라 컨텐츠의 크기가 달라졌을 경우 크기를 다시 감지하여 가로스크롤 적용
 ScrollTrigger.matchMedia({
-  "(min-width: 751px)": function() {
-    serviceTitleWidth = serviceTitle.clientWidth;
+  "(min-width: 1441px)": function() {
+    const serviceTitle = document.querySelector(".service__top--title")
     serviceSection.to(".service__top--cont", { x: () => {
-      return -(serviceTitleWidth + 160);
+      return -(serviceTitle.offsetWidth + 160);
     } })
     const cards = gsap.utils.toArray(".service__top .card__item");
     cards.forEach((card, idx) => {
@@ -251,6 +250,23 @@ ScrollTrigger.matchMedia({
     .to(".icon__wrap--img.open", {autoAlpha: 0}, "g")
     .to(".icon__wrap--img.lock", {autoAlpha: 1}, "g+=0.3")
     .to(".icon__wrap--img.lock", {autoAlpha: 0})
+  },
+  "(min-width: 751px) and (max-width: 1440px)": function() {
+    const serviceTitle = document.querySelector(".service__top--title")
+    serviceSection.to(".service__top--cont", { x: () => {
+      return -(serviceTitle.offsetWidth + 160);
+    } })
+    const cards = gsap.utils.toArray(".service__top .card__item");
+    cards.forEach((card, idx) => {
+      return serviceSection.to(card, { x: () => -(card.offsetWidth + 40) * idx, delay: 0.1 }, "g")
+    })
+    serviceSection
+    .to(".icon__wrap--img.open", {autoAlpha: 0}, "g")
+    .to(".icon__wrap--img.lock", {autoAlpha: 1}, "g+=0.3")
+    .to(".icon__wrap--img.lock", {autoAlpha: 0})
+    .set(".service__top .card__item--normal", {autoAlpha: 0})
+    .to(".service__top .card__item", {width: 208, height: 280}, "n")
+    .to(".service__top .card__item", {x: (-((cards[0].offsetWidth + 40) * 3) + (95 * 3))}, "n")
   },
   "(max-width: 750px)": function() {
     const serviceTopCard = document.querySelector(".service__top--cont .card__item");
@@ -266,14 +282,14 @@ ScrollTrigger.matchMedia({
 // section : service-main
 // 테블릿 사이즈인 경우 .service__main에 있는 카드 크기 변화
 ScrollTrigger.matchMedia({
-  "(min-width: 751px) and (max-width: 1024px)": function() {
+  "(min-width: 751px) and (max-width: 1440px)": function() {
     const serviceMainCardScale = gsap.timeline({
       scrollTrigger: {
         trigger: ".service__main",
         start: "70% 50%",
         end: "100% 100%",
         scrub: 0,
-        // markers: true
+        markers: true
       },
       ease: "none",
     })
