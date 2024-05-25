@@ -41,4 +41,22 @@
       }
     }
   }
+  @media screen and (max-width: 750px) {
+    &__wrap {
+      background: url(../images/creator.jpg) center / cover no-repeat;
+    }
+    &__intro {
+      left: 24px;
+      top: 10vh;
+      transform: none;
+      color: #fff;
+      &--title {
+        margin-bottom: 25px;
+        font-size: 44px;
+      }
+      &--desc {
+        font-size: 1rem;
+      }
+    }
+  }
 }
