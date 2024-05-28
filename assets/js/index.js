@@ -38,7 +38,6 @@ const keywordSection = gsap.timeline({
     start: "top top",
     end: "100% 100%",
     scrub: 0,
-    // markers: true
   }
 })
 keywordSection
@@ -85,7 +84,6 @@ const galleryFrontSection = gsap.timeline({
     start: "0% 0%",
     end: "20% 0%",
     scrub: 0,
-    // markers: true
   }
 })
 const gallerybehindSection = gsap.timeline({
@@ -94,7 +92,6 @@ const gallerybehindSection = gsap.timeline({
     start: "65% 0%",
     end: "80% 0%",
     scrub: 0,
-    // markers: true
   }
 })
 ScrollTrigger.matchMedia({
@@ -155,7 +152,6 @@ const possibilitySection = gsap.timeline({
     scrub: 0,
     invalidateOnRefresh: true,
     anticipatePin: 1,
-    // markers: true
   },
   ease: "none"
 })
@@ -194,7 +190,6 @@ const featureSection = gsap.timeline({
     start: "60% 100%",
     end: "130% 60%",
     scrub: 0,
-    // markers: true
   }
 })
 ScrollTrigger.matchMedia({
@@ -282,7 +277,6 @@ ScrollTrigger.matchMedia({
         start: "70% 50%",
         end: "100% 100%",
         scrub: 0,
-        markers: true
       },
       ease: "none",
     })
@@ -325,7 +319,6 @@ ScrollTrigger.matchMedia({
         end: "20% 10%",
         scrub: 0,
         pin: true,
-        // markers: true
       }
     })
     serviceSectionOpacityChange.from(".card__item--sticky .card__item", {xPercent: 5})
