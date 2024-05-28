@@ -3,7 +3,6 @@ const sectionMain = document.querySelector(".main__wrap");
 ScrollTrigger.create({
   trigger: ".main__wrap",
   start: "top top",
-  // markers: true,
   onEnter: () => {
     $(".header").addClass("on")
   }
@@ -15,7 +14,6 @@ const mainSection = gsap.timeline({
     trigger: ".main__wrap",
     start: "top top",
     end: "100% 100%",
-    // markers: true,
     scrub: 1
   },
   ease: "none"
@@ -59,7 +57,6 @@ keywordSection
 ScrollTrigger.create({
   trigger: ".desc__topCont",
   start: "top top",
-  // markers: true,
   onEnter: () => {
     $(".header").removeClass("on")
   },
@@ -75,7 +72,6 @@ const descSection = gsap.timeline({
     start: "0% 80%",
     end: "0% 20%",
     scrub: 1,
-    // markers: true,
   },
 })
 descSection
@@ -113,7 +109,6 @@ const backgroundDark = gsap.timeline({
   scrollTrigger: {
     trigger: ".possibility__cont",
     start: "0% 50%",
-    // markers: true,
     onEnter: () => {
       $(".header").addClass("on");
       $("body").addClass("dark");
@@ -182,7 +177,6 @@ ScrollTrigger.matchMedia({
         scrub: 0,
         invalidateOnRefresh: true,
         anticipatePin: 1,
-        // markers: true,
         pin: true
       },
       ease: "none"
@@ -231,7 +225,6 @@ const serviceSection = gsap.timeline({
     end: "33% bottom",
     scrub: 0,
     InvalidateOnRefresh: true,
-    // markers: true,
   }
 })
 // section : service-top
@@ -346,7 +339,6 @@ const serviceBottomSection = gsap.timeline({
     start: "0% 0%",
     end: "100% 100%",
     scrub: 0,
-    // markers: true,
     onEnter: () => {
       gsap.set(".service__bottom .card__item--lock", {autoAlpha: 1}, "j");
       gsap.set(".service__main", {autoAlpha: 0}, "j");
@@ -387,7 +379,6 @@ const serviceBottomCardBlur = gsap.timeline({
     trigger: ".service__bottom",
     start: "0% 18%",
     end: "0% 0%",
-    // markers: true,
   },
   ease: "none"
 })
@@ -401,7 +392,6 @@ const serviceFooterSection = gsap.timeline({
     start: "0% 0%",
     end: "100% 100%",
     scrub: 0,
-    // markers: true,
     onEnter: () => {
       gsap.set(".service__footer", {autoAlpha: 1}, "l");
       gsap.set(".service__bottom", {autoAlpha: 0}, "l");
@@ -430,7 +420,6 @@ const backgroundWhite = gsap.timeline({
   scrollTrigger: {
     trigger: "#section--desc-2",
     start: "0% 50%",
-    // markers: true,
     onEnter: () => {
       $(".header").removeClass("on");
       $("body").removeClass("dark");
@@ -460,7 +449,6 @@ const desc2Section = gsap.timeline({
     start: "0% 80%",
     end: "0% 20%",
     scrub: 1,
-    // markers: true,
   },
 })
 ScrollTrigger.matchMedia({
@@ -494,7 +482,6 @@ const financeSection = gsap.timeline({
     scrub: 0,
     invalidateOnRefresh: true,
     anticipatePin: 1,
-    // markers: true,
     onLeave: () => {
       $(".finance .arrow").removeClass("on")
     },
@@ -523,7 +510,6 @@ const financeArrow = gsap.timeline({
     end: "50% bottom",
     invalidateOnRefresh: true,
     anticipatePin: 1,
-    // markers: true,
     onEnter: () => {
       $(".finance .arrow").addClass("on");
     },
@@ -546,7 +532,6 @@ const financeDesc = gsap.timeline({
     start: "-10% 50%",
     end: "100% 60%",
     scrub: 0,
-    // markers: true,
     onEnter: () => {
       $(".finance .arrow").removeClass("on");
     }
@@ -563,7 +548,6 @@ const creatorSection = gsap.timeline({
     start: "top top",
     end: "bottom bottom",
     scrub: 0,
-    // markers: true,
   },
   ease: "none"
 })
@@ -580,7 +564,6 @@ const useSection = gsap.timeline({
     scrub: 0,
     invalidateOnRefresh: true,
     anticipatePin: 1,
-    // markers: true,
   },
   ease: "none"
 })
@@ -606,7 +589,6 @@ const useContChangeOpacity = gsap.timeline({
     start: "top 30%",
     end: "bottom bottom",
     scrub: 0,
-    // markers: true,
     onEnter: () => {
       $(".use .img").addClass("blur");
       $(".use .card__item:nth-child(1)").addClass("content__item--active");
@@ -620,7 +602,6 @@ const groundSection = gsap.timeline({
     trigger: ".footer",
     start: "top bottom",
     end: "bottom top",
-    // markers: true,
     onEnter: () => {
       $(".ground__join").addClass("active");
     },
