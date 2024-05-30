@@ -512,7 +512,7 @@ body.scrollNone {
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  height: 100vh;
+  height: max(100vh, 940px);
   padding: 0 100px;
 }
 @media screen and (min-width: 751px) and (max-width: 1024px) {
@@ -658,7 +658,7 @@ body.scrollNone {
   flex-direction: column;
   justify-content: center;
   width: 50%;
-  height: 100vh;
+  height: max(100vh, 940px);
 }
 .gallery__cont .cont__right .right__box--img {
   width: 100%;
@@ -686,7 +686,7 @@ body.scrollNone {
 @media screen and (max-width: 750px) {
   .gallery__cont {
     position: relative;
-    height: 400vh;
+    height: max(400vh, 3808px);
   }
   .gallery__cont--left {
     flex: 0 0 100%;
@@ -699,7 +699,8 @@ body.scrollNone {
     position: absolute;
     top: 0;
     left: 0;
-    height: 300vh;
+    height: max(300vh, 2856px);
+    box-sizing: border-box;
   }
   .gallery__cont .cont__right .right__box {
     width: 77%;
@@ -718,14 +719,14 @@ body.scrollNone {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: max(100vh, 940px);
   overflow: hidden;
 }
 .possibility__cont {
   display: flex;
   align-items: center;
   gap: 160px;
-  height: 100vh;
+  height: max(100vh, 940px);
   padding-left: 100px;
 }
 .possibility__cont--tit {
@@ -896,7 +897,7 @@ body.scrollNone {
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  height: 100vh;
+  height: max(100vh, 940px);
   padding: 0 100px;
 }
 @media screen and (min-width: 751px) and (max-width: 1024px) {
@@ -1031,25 +1032,25 @@ body.scrollNone {
 
 .service {
   width: 100%;
-  height: 1022vh;
+  height: max(1022vh, 9500px);
 }
 .service__top {
   opacity: 1;
-  height: 400vh;
+  height: max(400vh, 3408px);
 }
 .service__top--wrap {
   position: sticky;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: max(100vh, 940px);
   overflow-x: hidden;
 }
 .service__top--cont {
   display: flex;
   align-items: center;
   gap: 160px;
-  height: 100vh;
+  height: max(100vh, 940px);
   padding-left: 100px;
 }
 .service__top--title {
@@ -1248,9 +1249,10 @@ body.scrollNone {
   opacity: 0;
   display: flex;
   gap: 260px;
+  position: relative;
   width: 100%;
   height: 410vh;
-  margin-top: -100vh;
+  margin-top: min(-100vh, -945px);
   padding: 0 100px;
 }
 @media screen and (min-width: 751px) and (max-width: 1024px) {
@@ -1269,7 +1271,7 @@ body.scrollNone {
   position: sticky;
   top: 0;
   left: 0;
-  height: 100vh;
+  height: max(100vh, 940px);
 }
 .service__main .card__item--sticky .service__main--mobile-text {
   display: none;
@@ -1373,7 +1375,7 @@ body.scrollNone {
 @media (max-width: 1440px) {
   .service__main {
     gap: 7vw;
-    height: 360vh;
+    height: max(360vh, 3380px);
   }
   .service__main .card__item--sticky {
     width: 208px;
@@ -1485,21 +1487,21 @@ body.scrollNone {
 }
 .service__bottom {
   --progress-opacity: 0;
-  height: 300vh;
-  margin-top: -100vh;
+  height: max(300vh, 2800px);
+  margin-top: min(-100vh, -945px);
 }
 .service__bottom--cont {
   position: sticky;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: max(100vh, 940px);
   overflow-x: hidden;
 }
 .service__bottom .card {
   display: flex;
   align-items: center;
-  height: 100vh;
+  height: max(100vh, 940px);
   padding: 0 100px;
 }
 @media screen and (min-width: 751px) and (max-width: 1024px) {
@@ -1631,8 +1633,8 @@ body.scrollNone {
   opacity: 0;
   position: relative;
   width: 100%;
-  height: 200vh;
-  margin-top: -100vh;
+  height: max(200vh, 1896px);
+  margin-top: max(-100vh, -940px);
 }
 .service__footer--content {
   overflow: hidden;
@@ -1642,7 +1644,7 @@ body.scrollNone {
   position: sticky;
   top: 0;
   left: 0;
-  height: 100vh;
+  height: max(100vh, 940px);
   padding: 0 100px;
 }
 @media screen and (min-width: 751px) and (max-width: 1024px) {
@@ -1729,7 +1731,7 @@ body.scrollNone {
   display: flex;
   align-items: center;
   width: 100%;
-  height: 100vh;
+  height: max(100vh, 940px);
   padding: 0 100px;
 }
 @media screen and (min-width: 751px) and (max-width: 1024px) {
@@ -1863,14 +1865,14 @@ body.scrollNone {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: max(100vh, 940px);
   overflow-x: hidden;
 }
 .finance__wrap--sticky {
   display: flex;
   align-items: center;
   gap: 160px;
-  height: 100vh;
+  height: max(100vh, 940px);
   padding: 0 100px;
 }
 @media screen and (min-width: 751px) and (max-width: 1024px) {
@@ -2101,7 +2103,11 @@ body.scrollNone {
     line-height: 1.75;
   }
 }
+
 @media screen and (max-width: 750px) {
+  .finance {
+    height: auto;
+  }
   .finance__wrap {
     position: static;
     height: auto;
@@ -2164,7 +2170,6 @@ body.scrollNone {
     font-size: 1rem;
   }
 }
-
 .creator {
   height: 300vh;
 }
@@ -2173,7 +2178,7 @@ body.scrollNone {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: max(100vh, 940px);
   background: url(../images/creator.jpg) center/100% auto no-repeat;
 }
 .creator__intro {
@@ -2232,7 +2237,7 @@ body.scrollNone {
 
 .use {
   width: 100%;
-  height: 300vh;
+  height: max(100vh, 2856px);
   margin-top: 10vh;
 }
 .use__wrap {
@@ -2240,14 +2245,14 @@ body.scrollNone {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: max(100vh, 940px);
   overflow-x: hidden;
 }
 .use__wrap--sticky {
   display: flex;
   align-items: center;
   gap: 160px;
-  height: 100vh;
+  height: max(100vh, 940px);
   padding: 0 100px;
 }
 @media screen and (min-width: 751px) and (max-width: 1024px) {
