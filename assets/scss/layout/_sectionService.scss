@@ -1,20 +1,20 @@
 .service {
   width: 100%;
-  height: 1022vh;
+  height: max(1022vh, 9500px);
   &__top {
     opacity: 1;
-    height: 400vh;
+    height: max(400vh, 3408px);
     &--wrap {
       @include sticky;
       width: 100%;
-      height: 100vh;
+      height: max(100vh, 940px);
       overflow-x: hidden;
     }
     &--cont {
       display: flex;
       align-items: center;
       gap: 160px;
-      height: 100vh;
+      height: max(100vh, 940px);
       padding-left: 100px;
     }
     &--title {
@@ -197,15 +197,16 @@
     opacity: 0;
     display: flex;
     gap: 260px;
+    position: relative;
     width: 100%;
     height: 410vh;
-    margin-top: -100vh;
+    margin-top: min(-100vh, -945px);
     @include contInnerPadding;
     .card__item--sticky {
       display: flex;
       align-items: center;
       @include sticky;
-      height: 100vh;
+      height: max(100vh, 940px);
       .service__main--mobile-text { display: none; }
       .card__item--lock {
         @include flexCenter;
@@ -289,7 +290,7 @@
   @media (max-width: 1440px) {
     &__main {
       gap: 7vw;
-      height: 360vh;
+      height: max(360vh, 3380px);
       .card__item--sticky {
         width: 208px;
         .card__item--lock {
@@ -411,18 +412,18 @@
   }
   &__bottom {
     --progress-opacity: 0;
-    height: 300vh;
-    margin-top: -100vh;
+    height: max(300vh, 2800px);
+    margin-top: min(-100vh, -945px);
     &--cont {
       @include sticky;
       width: 100%;
-      height: 100vh;
+      height: max(100vh, 940px);
       overflow-x: hidden;
     }
     .card {
       display: flex;
       align-items: center;
-      height: 100vh;
+      height: max(100vh, 940px);
       @include contInnerPadding;
       &__item {
         overflow: hidden;
@@ -536,15 +537,15 @@
     opacity: 0;
     position: relative;
     width: 100%;
-    height: 200vh;
-    margin-top: -100vh;
+    height: max(200vh, 1896px);
+    margin-top: max(-100vh, -940px);
     &--content {
       overflow: hidden;
       display: flex;
       align-items: center;
       gap: 200px;
       @include sticky;
-      height: 100vh;
+      height: max(100vh, 940px);
       @include contInnerPadding;
       .card__item {
         position: relative;

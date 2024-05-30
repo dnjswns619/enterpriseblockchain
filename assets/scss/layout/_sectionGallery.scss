@@ -31,7 +31,7 @@
         flex-direction: column;
         justify-content: center;
         width: 50%;
-        height: 100vh;
+        height: max(100vh, 940px);
         &--img {
           width: 100%;
           height: auto;
@@ -66,7 +66,7 @@
   .gallery {
     &__cont {
       position: relative;
-      height: 400vh;
+      height: max(400vh, 3808px);
       &--left {
         flex: 0 0 100%;
         .text {
@@ -78,7 +78,8 @@
         position: absolute;
         top: 0;
         left: 0;
-        height: 300vh;
+        height: max(300vh, 2856px);
+        box-sizing: border-box;
       }
       .cont__right {
         .right__box {
