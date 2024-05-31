@@ -839,11 +839,11 @@ body.scrollNone {
 
 @media screen and (max-width: 750px) {
   .possibility {
-    height: 170vh;
+    height: max(160vh, 1890px);
   }
   .possibility__wrap {
     position: static;
-    height: auto;
+    height: max(100vh, 1890px);
   }
   .possibility__cont {
     flex-direction: column;
@@ -885,7 +885,6 @@ body.scrollNone {
   }
   .possibility__desc--text {
     font-size: 12px;
-    font-family: 400;
     color: rgba(255, 255, 255, 0.6);
   }
 }
