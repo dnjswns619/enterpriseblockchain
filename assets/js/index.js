@@ -206,7 +206,6 @@ function init() {
       end: "33% bottom",
       scrub: 0,
       InvalidateOnRefresh: true,
-      markers: true
     }
   })
   // section : service-top
