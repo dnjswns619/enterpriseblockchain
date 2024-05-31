@@ -1,6 +1,5 @@
 function init() {
   // header 활성화
-  const sectionMain = document.querySelector(".main__wrap");
   ScrollTrigger.create({
     trigger: ".main__wrap",
     start: "top top",
@@ -79,6 +78,7 @@ function init() {
   .to(".desc__bottomCont--text .text:nth-child(1)", {xPercent: -100}, "e")
   .to(".desc__bottomCont--text .text:nth-child(3)", {xPercent: 100}, "e")
 
+  // gallerySection 모바일일때 텍스트 나타나기 / 사라지기
   const galleryFrontSection = gsap.timeline({
     scrollTrigger: {
       trigger: ".gallery__cont",
@@ -103,45 +103,31 @@ function init() {
   });
 
   // section--possibility 진입시 백그라운드 black
-  const backgroundDark = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".possibility__cont",
-      start: "0% 50%",
-      onEnter: () => {
-        $(".header").addClass("on");
-        $("body").addClass("dark");
-      },
-      onLeaveBack: () => {
-        $(".header").removeClass("on");
-        $("body").removeClass("dark");
-      }
+  ScrollTrigger.create({
+    trigger: ".possibility__cont",
+    start: "0% 50%",
+    onEnter: () => {
+      $(".header").addClass("on");
+      $("body").addClass("dark");
+    },
+    onLeaveBack: () => {
+      $(".header").removeClass("on");
+      $("body").removeClass("dark");
     }
   })
 
+  // headerOnTarget에 들어온 경우를 감지해 header에 on class 추가(새로고침 방지)
   const header = document.querySelector(".header");
-  let observer = new IntersectionObserver((entries) => {
+  let headerOnObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      console.log(entry.isIntersecting);
       if(entry.isIntersecting) { // 요소가 현재 뷰포트에 노출되어 있는지 확인
         header.classList.add("on");// 50%이상 보였을 때 실행시킬 코드
       }
     }, {threshold: 0.5}) // 대상 요소가 50% 이상 보였을 때 작동
   })
-  const possibilityContObserver = document.querySelectorAll(".possibility");
+  const possibilityContObserver = document.querySelectorAll(".headerOnTarget");
   possibilityContObserver.forEach((poster) => {
-    observer.observe(poster);
-  })
-  const challangeContObserver = document.querySelectorAll(".challange");
-  challangeContObserver.forEach((poster) => {
-    observer.observe(poster);
-  })
-  const featureContObserver = document.querySelectorAll(".feature");
-  featureContObserver.forEach((poster) => {
-    observer.observe(poster);
-  })
-  const serviceContObserver = document.querySelectorAll(".service");
-  serviceContObserver.forEach((poster) => {
-    observer.observe(poster);
+    headerOnObserver.observe(poster);
   })
 
   // section--possibility
@@ -213,7 +199,6 @@ function init() {
 
 
   // section--service
-
   const serviceSection = gsap.timeline({
     scrollTrigger: {
       trigger: ".service",
@@ -285,24 +270,20 @@ function init() {
       serviceMainCardScale.to(".service__main .card__item", {width: 303, height: 408})
     }
   });
-  gsap.to(".service__main", {
-    scrollTrigger: {
-      trigger: ".service__main",
-      start: "0% 0%",
-      end: "100% 100%",
-      scrub: 0,
-      onEnter: () => {
-        gsap.set(".service__main", {autoAlpha: 1}, "i");
-        gsap.set(".service__top", {autoAlpha: 0}, "i");
-      },
-      onLeaveBack: () => {
-        gsap.set(".service__main", {autoAlpha: 0}, "i");
-        gsap.set(".service__top", {autoAlpha: 1}, "i");
-      }
+  ScrollTrigger.create({
+    trigger: ".service__main",
+    start: "0% 0%",
+    end: "100% 100%",
+    scrub: 0,
+    onEnter: () => {
+      gsap.set(".service__main", {autoAlpha: 1}, "i");
+      gsap.set(".service__top", {autoAlpha: 0}, "i");
     },
-    ease: "none",
+    onLeaveBack: () => {
+      gsap.set(".service__main", {autoAlpha: 0}, "i");
+      gsap.set(".service__top", {autoAlpha: 1}, "i");
+    }
   })
-
   gsap.to(".service__main", {
     scrollTrigger: {
       trigger: ".service__main",
@@ -345,8 +326,6 @@ function init() {
     },
     ease: "none",
   })
-
-
   ScrollTrigger.matchMedia({
     "(min-width: 1025px)": function() {
       const bottomCards = gsap.utils.toArray(".service__bottom .card .card__item");
@@ -367,8 +346,6 @@ function init() {
       serviceBottomSection.to(".service__bottom .card", { autoAlpha: 0 })
     }
   });
-
-
   const serviceBottomCardBlur = gsap.timeline({
     scrollTrigger: {
       trigger: ".service__bottom",
@@ -399,7 +376,6 @@ function init() {
     },
     ease: "none",
   })
-
   ScrollTrigger.matchMedia({
     "(min-width: 751px)": function() {
       serviceFooterSection.to(".service__footer", {"--progress-opacity": "1"})
@@ -412,8 +388,7 @@ function init() {
   });
 
   // section-desc-2 진입시 백그라운드 white
-  const backgroundWhite = gsap.timeline({
-    scrollTrigger: {
+    ScrollTrigger.create({
       trigger: "#section--desc-2",
       start: "0% 50%",
       onEnter: () => {
@@ -424,11 +399,11 @@ function init() {
         $(".header").addClass("on");
         $("body").addClass("dark");
       },
-    }
-  })
-  observer = new IntersectionObserver((entries) => {
+    })
+
+  // desc-2에 들어와있는 경우에는 header에 on class 제거
+  const headerInitObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      console.log(entry.isIntersecting);
       if(entry.isIntersecting) { // 요소가 현재 뷰포트에 노출되어 있는지 확인
         header.classList.remove("on");// 50%이상 보였을 때 실행시킬 코드
       }
@@ -436,8 +411,9 @@ function init() {
   })
   const desc2ContObserver = document.querySelectorAll(".desc-2");
   desc2ContObserver.forEach((poster) => {
-    observer.observe(poster);
+    headerInitObserver.observe(poster);
   })
+
   // section--desc2
   const desc2Section = gsap.timeline({
     scrollTrigger: {
@@ -467,7 +443,6 @@ function init() {
       .to(".desc-2__bottom--text .text:nth-child(3)", {xPercent: 40}, "m")
     }
   });
-
 
   // section--finance
   const financeSection = gsap.timeline({
@@ -499,29 +474,25 @@ function init() {
     }
   });
   // finance section 진입시 arrow 생성 / 50% 지났을때 텍스트 변경
-  const financeArrow = gsap.timeline({
-    scrollTrigger: {
-      trigger: "#section--finance",
-      start: "top top",
-      end: "50% bottom",
-      invalidateOnRefresh: true,
-      anticipatePin: 1,
-      onEnter: () => {
-        $(".finance .arrow").addClass("on");
-      },
-      onLeave: () => {
-        $(".finance .arrow").addClass("change");
-      },
-      onEnterBack: () => {
-        $(".finance .arrow").removeClass("change");
-      },
-      onLeaveBack: () => {
-        $(".finance .arrow").removeClass("on");
-      }
+  ScrollTrigger.create({
+    trigger: "#section--finance",
+    start: "top top",
+    end: "50% bottom",
+    invalidateOnRefresh: true,
+    anticipatePin: 1,
+    onEnter: () => {
+      $(".finance .arrow").addClass("on");
     },
-    ease: "none",
+    onLeave: () => {
+      $(".finance .arrow").addClass("change");
+    },
+    onEnterBack: () => {
+      $(".finance .arrow").removeClass("change");
+    },
+    onLeaveBack: () => {
+      $(".finance .arrow").removeClass("on");
+    }
   })
-
   const financeDesc = gsap.timeline({
     scrollTrigger: {
       trigger: ".finance__desc",
@@ -534,7 +505,6 @@ function init() {
     },
     ease: "none",
   })
-
   financeDesc.to(".finance__desc", { autoAlpha: 1 })
 
   // section--creator
@@ -578,32 +548,29 @@ function init() {
       useSection.to(".use__item", {x: () => -((useCardItem.offsetWidth * 3) + 32)})
     }
   });
+
   // useSection 화면에 진입시 블러처리 / 텍스트 보이기
-  const useContChangeOpacity = gsap.timeline({
-    scrollTrigger: {
-      trigger: "#section--use",
-      start: "top 30%",
-      end: "bottom bottom",
-      scrub: 0,
-      onEnter: () => {
-        $(".use .img").addClass("blur");
-        $(".use .card__item:nth-child(1)").addClass("content__item--active");
-      }
-    },
-    ease: "none"
+  ScrollTrigger.create ({
+    trigger: "#section--use",
+    start: "top 30%",
+    end: "bottom bottom",
+    scrub: 0,
+    onEnter: () => {
+      $(".use .img").addClass("blur");
+      $(".use .card__item:nth-child(1)").addClass("content__item--active");
+    }
   })
+
   // footer 진입시 groundsSection join 나오게 하기
-  const groundSection = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".footer",
-      start: "top bottom",
-      end: "bottom top",
-      onEnter: () => {
-        $(".ground__join").addClass("active");
-      },
-      onLeaveBack: () => {
-        $(".ground__join").removeClass("active");
-      }
+  ScrollTrigger.create({
+    trigger: ".footer",
+    start: "top bottom",
+    end: "bottom top",
+    onEnter: () => {
+      $(".ground__join").addClass("active");
+    },
+    onLeaveBack: () => {
+      $(".ground__join").removeClass("active");
     }
   })
 
