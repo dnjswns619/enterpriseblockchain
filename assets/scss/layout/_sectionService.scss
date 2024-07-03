@@ -200,7 +200,7 @@
     position: relative;
     width: 100%;
     height: 410vh;
-    margin-top: min(-100vh, -945px);
+    margin-top: max(-100vh, -945px);
     @include contInnerPadding;
     .card__item--sticky {
       display: flex;

@@ -24,7 +24,6 @@ window.addEventListener("load", () => {
   }
 
   function disableScroll() {
-    console.log(11)
     window.addEventListener('wheel', preventDefault, { passive: false });
     window.addEventListener('touchmove', preventDefault, { passive: false });
     window.addEventListener('keydown', preventDefaultForScrollKeys, { passive: false });
