@@ -110,6 +110,7 @@
       background: url(../images/sc-desc2.jpg) center / cover no-repeat;
       &--text {
         .text {
+          white-space: noWrap;
           font-size: 30px;
         }
       }
