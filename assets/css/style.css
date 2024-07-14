@@ -117,7 +117,7 @@ body.scrollNone {
   background-color: #000;
 }
 
-#contianer {
+#container {
   width: 100%;
 }
 
@@ -165,7 +165,6 @@ body.scrollNone {
   width: 100%;
   z-index: 1;
   padding: 0 100px;
-  visibility: hidden;
 }
 @media screen and (min-width: 751px) and (max-width: 1024px) {
   .header {
@@ -351,6 +350,10 @@ body.scrollNone {
   background-color: #fff;
 }
 
+.scrollNone .header.on .header__hamburger--item {
+  background-color: #000;
+}
+
 .main__wrap {
   position: relative;
   width: 100%;
@@ -508,6 +511,7 @@ body.scrollNone {
 }
 
 .desc__topCont {
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -538,6 +542,7 @@ body.scrollNone {
   line-height: 1.7;
 }
 .desc__bottomCont {
+  overflow-x: hidden;
   position: relative;
   width: 100%;
   height: 70vh;
@@ -594,6 +599,7 @@ body.scrollNone {
     padding: 120px 24px;
   }
   .desc__topCont--tit {
+    width: 100%;
     font-size: 44px;
   }
   .desc__topCont--text {
@@ -610,6 +616,7 @@ body.scrollNone {
     height: 40px;
   }
   .desc__bottomCont--text .text {
+    white-space: noWrap;
     font-size: 32px;
   }
 }
@@ -1851,6 +1858,7 @@ body.scrollNone {
     background: url(../images/sc-desc2.jpg) center/cover no-repeat;
   }
   .desc-2__bottom--text .text {
+    white-space: noWrap;
     font-size: 30px;
   }
 }
