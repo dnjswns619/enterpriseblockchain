@@ -8,7 +8,6 @@
   width: 100%;
   z-index: 1;
   @include contInnerPadding;
-  visibility: hidden;
   .logo {
     a{
       display: block;
@@ -181,3 +180,4 @@
     transition: filter .5s;
 }
 .header.on .header__hamburger--item { background-color: #fff; }
+.scrollNone .header.on .header__hamburger--item { background-color: #000; }
