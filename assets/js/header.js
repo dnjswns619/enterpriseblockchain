@@ -3,6 +3,7 @@ window.addEventListener("load", () => {
   const burgerBtn = document.querySelector(".header__hamburger--wrap");
   const mobileMenu = document.querySelector(".header__mobileMenu");
   burgerBtn.addEventListener("click", (e) => {
+    e.preventDefault();
     if(burderBtnWrap.classList.contains("on")) {
       burderBtnWrap.classList.remove("on");
       mobileMenu.classList.remove("on")

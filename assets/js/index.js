@@ -21,10 +21,8 @@ function init() {
     ease: "none"
   })
   mainSection
-  .set(".header", {yPercent: -100})
   .to(".main__content", {"--background-color": "rgba(0, 0, 0, .6)"}, "a")
   .to(".main__content .text:nth-of-type(1)", {autoAlpha: 1}, "a")
-  .to(".header", {yPercent: 0, visibility: "visible"}, "a")
   .to(".main__content .text:nth-of-type(1)", {autoAlpha: 0})
   .to(".main__content .text:nth-of-type(2)", {autoAlpha: 1})
   .to(".main__content .text:nth-of-type(2)", {autoAlpha: 0})
@@ -313,7 +311,6 @@ function init() {
     end: "100% 100%",
     scrub: 0,
     invalidateOnRefresh: true,
-    markers: true,
     onEnter: () => {
       gsap.set(".service__main", {autoAlpha: 1}, "i");
       gsap.set(".service__top", {autoAlpha: 0}, "i");
@@ -604,6 +601,24 @@ function init() {
       })
       const financeItem = document.querySelector(".finance__item");
       financeSection.to(".finance__wrap--sticky", {x: () => -(financeItem.offsetWidth + 80)})
+    },
+    "(max-width: 750px)": function() {
+      const financeSection = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#section--finance",
+          start: "top top",
+          end: "bottom bottom",
+          scrub: 0,
+          invalidateOnRefresh: true,
+          onLeave: () => {
+            $(".finance .arrow").removeClass("on")
+          },
+          onEnterBack: () => {
+            $(".finance .arrow").addClass("on")
+          }
+        },
+        ease: "none"
+      })
     }
   });
   // finance section 진입시 arrow 생성 / 50% 지났을때 텍스트 변경
@@ -698,7 +713,7 @@ function init() {
         ease: "none"
       })
       const useCardItem = document.querySelector(".use__item .card__item");
-      useSection.to(".use__item", {x: () => -((useCardItem.offsetWidth * 3) + 32)})
+      useSection.to(".use__item", {x: () => -((useCardItem.offsetWidth * 3) + 96)})
     }
   });
 
