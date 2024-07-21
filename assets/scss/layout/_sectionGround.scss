@@ -1,5 +1,5 @@
 .ground {
-  overflow: hidden;
+  contain: layout paint;
   position: relative;
   @include contInnerPadding;
   &__mobileWrap { display: none; }
@@ -121,6 +121,7 @@
       overflow-x: hidden;
       left: calc((100vw / 4) * -3);
       animation: mobileJoinLTR 8s infinite linear;
+      will-change: transform;
       &--item{
         width: calc(100vw / 4);
         font-size: 1rem;
