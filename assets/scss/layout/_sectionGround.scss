@@ -1,5 +1,5 @@
 .ground {
-  contain: layout paint;
+  contain: layout;
   position: relative;
   @include contInnerPadding;
   &__mobileWrap { display: none; }
