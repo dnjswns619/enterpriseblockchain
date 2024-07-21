@@ -347,7 +347,7 @@ function init() {
           anticipatePin: true
         }
       })
-      serviceSectionOpacityChange.fromTo(".service__main .icon__Wrap--text", {autoAlpha: 0}, {xPercent: 1})
+      serviceSectionOpacityChange.fromTo(".service__main .icon__wrap--text", {autoAlpha: 0}, {autoAlpha: 1})
     }
   });
 
