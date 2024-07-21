@@ -342,7 +342,7 @@ function init() {
           anticipatePin: true
         }
       })
-      serviceSectionOpacityChange.from(".card__item--sticky .card__item", {xPercent: 5})
+      serviceSectionOpacityChange.fromTo(".card__item--sticky .card__item", {xPercent: 5}, {xPercent: 0})
     }
   });
 
