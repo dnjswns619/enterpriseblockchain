@@ -2496,7 +2496,7 @@ body.scrollNone {
 }
 
 .ground {
-  contain: layout paint;
+  contain: layout;
   position: relative;
   padding: 0 100px;
 }
