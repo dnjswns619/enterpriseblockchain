@@ -272,7 +272,7 @@
     }
     .card {
       &__item {
-        width: 400px;
+        width: calc(min(var(--window-width), 480) * 1px - 48px);
         height: 540px;
       }
     }

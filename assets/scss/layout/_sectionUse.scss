@@ -236,7 +236,7 @@
     .card {
       gap: 32px;
       &__item {
-        width: 382px;
+        width: calc(min(var(--window-width), 480) * 1px - 48px);
         height: 504px;
         &--content {
           .content {
