@@ -84,7 +84,7 @@
       font-size: 1rem;
     }
     &__join {
-      left: calc((100vw / 4) * -4);
+      left: calc((100vw / 4) * -3);
       animation: tabletJoinLTR 12s infinite linear;
       &--item{
         width: calc(100vw / 4);
@@ -118,10 +118,10 @@
       .ground__button { font-size: 14px; }
     }
     &__join {
-      margin-left: calc((100vw / 5) * -5);
+      left: calc((100vw / 4) * -3);
       animation: mobileJoinLTR 8s infinite linear;
       &--item{
-        width: calc(100vw / 5);
+        width: calc(100vw / 4);
         font-size: 1rem;
       }
     }
@@ -133,11 +133,11 @@
 }
 @keyframes tabletJoinLTR {
   0% { transform: translateX(0); }
-  100% { transform: translateX(calc((100vw / 4) * 4)); }
+  100% { transform: translateX(calc((100vw / 4) * 3)); }
 }
 @keyframes mobileJoinLTR {
   0% { transform: translateX(0); }
-  100% { transform: translateX(calc((100vw / 5) * 5)); }
+  100% { transform: translateX(calc((100vw / 4) * 3)); }
 }
 @keyframes mobileTitleRTL {
   0% { transform: translateX(0); }
