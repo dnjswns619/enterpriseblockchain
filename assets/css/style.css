@@ -2636,6 +2636,7 @@ body.scrollNone {
     font-size: 14px;
   }
   .ground__join {
+    overflow-x: hidden;
     left: -75vw;
     animation: mobileJoinLTR 8s infinite linear;
   }
@@ -2647,34 +2648,34 @@ body.scrollNone {
 
 @keyframes joinLTR {
   0% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translateX(33.3333333333vw);
+    transform: translate3d(33.3333333333vw, 0, 0);
   }
 }
 @keyframes tabletJoinLTR {
   0% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translateX(75vw);
+    transform: translate3d(75vw, 0, 0);
   }
 }
 @keyframes mobileJoinLTR {
   0% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translateX(-75vw);
+    transform: translate3d(75vw, 0, 0);
   }
 }
 @keyframes mobileTitleRTL {
   0% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translateX(-1972px);
+    transform: translate3d(-1972px, 0, 0);
   }
 }
 .footer {
