@@ -2496,7 +2496,7 @@ body.scrollNone {
 }
 
 .ground {
-  overflow: hidden;
+  contain: layout paint;
   position: relative;
   padding: 0 100px;
 }
@@ -2639,6 +2639,7 @@ body.scrollNone {
     overflow-x: hidden;
     left: -75vw;
     animation: mobileJoinLTR 8s infinite linear;
+    will-change: transform;
   }
   .ground__join--item {
     width: 25vw;
