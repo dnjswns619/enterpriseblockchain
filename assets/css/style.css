@@ -48,12 +48,13 @@
 :root {
   -webkit-tap-highlight-color: transparent;
   -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -o-text-size-adjust: 100%;
   text-size-adjust: 100%;
   cursor: default;
   line-height: 1.5;
   overflow-wrap: break-word;
-  -moz-tab-size: 4;
-  tab-size: 4;
 }
 
 html, body {
@@ -118,6 +119,7 @@ body.scrollNone {
 }
 
 #container {
+  position: relative;
   width: 100%;
 }
 
@@ -2567,6 +2569,8 @@ body.scrollNone {
 }
 .ground__join--item .join__item--text {
   position: relative;
+  display: block;
+  color: #fff;
   z-index: 2;
 }
 .ground__join::after {
@@ -2627,7 +2631,7 @@ body.scrollNone {
     font-size: 14px;
   }
   .ground__join {
-    left: -100vw;
+    margin-left: -100vw;
     animation: mobileJoinLTR 8s infinite linear;
   }
   .ground__join--item {
