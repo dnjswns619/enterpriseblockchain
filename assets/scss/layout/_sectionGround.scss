@@ -137,7 +137,7 @@
 }
 @keyframes mobileJoinLTR {
   0% { transform: translateX(0); }
-  100% { transform: translateX(calc((100vw / 4) * 3)); }
+  100% { transform: translateX(calc((100vw / 4) * -3)); }
 }
 @keyframes mobileTitleRTL {
   0% { transform: translateX(0); }
