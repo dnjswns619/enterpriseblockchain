@@ -315,7 +315,6 @@ function init() {
     start: "0% 0%",
     end: "100% 100%",
     invalidateOnRefresh: true,
-    markers: true,
     onEnter: () => {
       gsap.set(".service__main", {autoAlpha: 1}, "i");
       gsap.set(".service__top", {autoAlpha: 0}, "i");

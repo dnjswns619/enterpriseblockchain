@@ -2596,7 +2596,7 @@ body.scrollNone {
     font-size: 1rem;
   }
   .ground__join {
-    left: -100vw;
+    left: -75vw;
     animation: tabletJoinLTR 12s infinite linear;
   }
   .ground__join--item {
@@ -2636,11 +2636,11 @@ body.scrollNone {
     font-size: 14px;
   }
   .ground__join {
-    margin-left: -100vw;
+    left: -75vw;
     animation: mobileJoinLTR 8s infinite linear;
   }
   .ground__join--item {
-    width: 20vw;
+    width: 25vw;
     font-size: 1rem;
   }
 }
@@ -2658,7 +2658,7 @@ body.scrollNone {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(100vw);
+    transform: translateX(75vw);
   }
 }
 @keyframes mobileJoinLTR {
@@ -2666,7 +2666,7 @@ body.scrollNone {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(100vw);
+    transform: translateX(75vw);
   }
 }
 @keyframes mobileTitleRTL {
