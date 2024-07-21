@@ -30,11 +30,14 @@
   }
   &__join {
     display: flex;
+    flex-wrap: nowrap;
     position: absolute;
     left: calc((100vw / 9) * -3);
     bottom: -60px;
     transition: bottom .3s linear;
+    min-width: 100%;
     animation: joinLTR 6s infinite linear;
+    white-space: nowrap;
     &.active { bottom: 0; }
     &--item{
       display: flex;

@@ -1,4 +1,9 @@
 function init() {
+  const windowWidth = window.innerWidth;
+  const windowHeight = window.innerHeight;
+  document.documentElement.style.setProperty("--window-width", windowWidth);
+  document.documentElement.style.setProperty("--window-height", windowHeight);
+
   gsap.registerPlugin(ScrollTrigger);
   // header 활성화
   ScrollTrigger.create({
@@ -172,7 +177,7 @@ function init() {
         ease: "none"
       })
       possibilityMobile
-      .to(".possibility__cont--item", {x: () => -((possibilityItemBoxWidth * 2.5) + (75 * 3))})
+      .to(".possibility__cont--item", {x: () => -((possibilityItemBoxWidth * 3) + (75 * 2) + 24)})
     }
   });
 
@@ -281,7 +286,7 @@ function init() {
       const serviceTopCard = document.querySelector(".service__top--cont .card__item");
       const serviceTopCardWidth = serviceTopCard.offsetWidth;
       serviceSection
-      .to(".service__top--cont .card", {x: () => -((serviceTopCardWidth * 3) + 80)})
+      .to(".service__top--cont .card", {x: () => -((serviceTopCardWidth * 3) + 120)})
       .to(".icon__wrap--img.open", {autoAlpha: 0}, "g")
       .to(".icon__wrap--img.lock", {autoAlpha: 1}, "g+=0.3")
       .to(".service__top--cont .card", {autoAlpha: 0})
@@ -309,8 +314,8 @@ function init() {
     trigger: ".service__main",
     start: "0% 0%",
     end: "100% 100%",
-    scrub: 0,
     invalidateOnRefresh: true,
+    markers: true,
     onEnter: () => {
       gsap.set(".service__main", {autoAlpha: 1}, "i");
       gsap.set(".service__top", {autoAlpha: 0}, "i");
@@ -338,11 +343,12 @@ function init() {
           start: "0% 0%",
           end: "20% 10%",
           scrub: 0,
+          pin: true,
           invalidateOnRefresh: true,
           anticipatePin: true
         }
       })
-      serviceSectionOpacityChange.fromTo(".card__item--sticky .card__item", {xPercent: 5}, {xPercent: 0})
+      serviceSectionOpacityChange.fromTo(".service__main .icon__Wrap--text", {autoAlpha: 0}, {xPercent: 1})
     }
   });
 

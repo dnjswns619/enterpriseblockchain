@@ -102,7 +102,9 @@ body {
 }
 
 :root {
-  --background-color: rgba(0, 0, 0, 0) ;
+  --background-color: rgba(0, 0, 0, 0);
+  --window-width: 0;
+  --window-height: 0;
 }
 
 body {
@@ -1052,14 +1054,14 @@ body.scrollNone {
   top: 0;
   left: 0;
   width: 100%;
-  height: max(100vh, 940px);
+  height: var(--window-height, 100vh);
   overflow-x: hidden;
 }
 .service__top--cont {
   display: flex;
   align-items: center;
   gap: 160px;
-  height: max(100vh, 940px);
+  height: var(--window-height, 100vh);
   padding-left: 100px;
 }
 .service__top--title {
@@ -1208,8 +1210,8 @@ body.scrollNone {
 }
 @media (max-width: 750px) {
   .service .card__item {
-    width: 382px;
-    height: 504px;
+    width: calc(min(var(--window-width), 480) * 1px - 48px);
+    height: calc(min(var(--window-width), 480) * 1.3px - 48px);
     padding: 26px;
   }
   .service .card__item--tit {
@@ -1460,8 +1462,8 @@ body.scrollNone {
     color: #fff;
   }
   .service__main .card__item--sticky .card__item--lock {
-    width: 382px;
-    height: 504px;
+    width: calc(min(var(--window-width), 480) * 1px - 48px);
+    height: calc(min(var(--window-width), 480) * 1.3px - 48px);
   }
   .service__main .card__item--sticky .card__item--lock .icon__wrap--text {
     font-size: 40px;
@@ -1614,7 +1616,7 @@ body.scrollNone {
   }
   .service__bottom--cont .card__item {
     z-index: 0;
-    width: 382px;
+    width: calc(min(var(--window-width), 480) * 1px - 48px);
     height: 504px;
   }
   .service__bottom--cont .card__item:nth-child(1) {
@@ -1725,7 +1727,7 @@ body.scrollNone {
     padding: 12.3vh 24px 0;
   }
   .service__footer--content .card__item {
-    width: 382px;
+    width: calc(min(var(--window-width), 480) * 1px - 48px);
     height: 504px;
     margin: 0 auto;
   }
@@ -2139,7 +2141,7 @@ body.scrollNone {
     width: 100%;
   }
   .finance .card__item {
-    width: 400px;
+    width: calc(min(var(--window-width), 480) * 1px - 48px);
     height: 540px;
   }
   .finance__desc {
@@ -2473,7 +2475,7 @@ body.scrollNone {
     gap: 32px;
   }
   .use .card__item {
-    width: 382px;
+    width: calc(min(var(--window-width), 480) * 1px - 48px);
     height: 504px;
   }
   .use .card__item--content .content__item--desc {
@@ -2538,11 +2540,14 @@ body.scrollNone {
 }
 .ground__join {
   display: flex;
+  flex-wrap: nowrap;
   position: absolute;
   left: -33.3333333333vw;
   bottom: -60px;
   transition: bottom 0.3s linear;
+  min-width: 100%;
   animation: joinLTR 6s infinite linear;
+  white-space: nowrap;
 }
 .ground__join.active {
   bottom: 0;

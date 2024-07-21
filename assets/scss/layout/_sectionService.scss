@@ -7,14 +7,14 @@
     &--wrap {
       @include sticky;
       width: 100%;
-      height: max(100vh, 940px);
+      height: var(--window-height, 100vh);
       overflow-x: hidden;
     }
     &--cont {
       display: flex;
       align-items: center;
       gap: 160px;
-      height: max(100vh, 940px);
+      height: var(--window-height, 100vh);
       padding-left: 100px;
     }
     &--title {
@@ -152,8 +152,8 @@
     }
     @media (max-width: 750px) {
       &__item {
-        width: 382px;
-        height: 504px;
+        width: calc(min(var(--window-width), 480) * 1px - 48px);
+        height: calc(min(var(--window-width), 480) * 1.3px - 48px);
         padding: 26px;
         &--tit {
           font-size: $tablet_middle-text;
@@ -192,6 +192,7 @@
       }
     }
   }
+  // 서비스 main
   &__main {
     --progress-opacity: 0;
     opacity: 0;
@@ -365,8 +366,8 @@
             color: #fff;
           }
           .card__item--lock {
-            width: 382px;
-            height: 504px;
+            width: calc(min(var(--window-width), 480) * 1px - 48px);
+            height: calc(min(var(--window-width), 480) * 1.3px - 48px);
             .icon__wrap {
               &--text {
                 font-size: $tablet_middle-text;
@@ -410,6 +411,7 @@
       }
     }
   }
+  // 서비스 bottom
   &__bottom {
     --progress-opacity: 0;
     height: max(300vh, 2800px);
@@ -506,7 +508,7 @@
           height: auto;
           &__item {
             z-index: 0;
-            width: 382px;
+            width: calc(min(var(--window-width), 480) * 1px - 48px);
             height: 504px;
             &:nth-child(1) {
               display: none;
@@ -532,6 +534,7 @@
       }
     }
   }
+  // 서비스 footer
   &__footer {
     --progress-opacity: 0;
     opacity: 0;
@@ -603,7 +606,7 @@
         align-items: flex-start;
         padding: 12.3vh 24px 0;
         .card__item {
-          width: 382px;
+          width: calc(min(var(--window-width), 480) * 1px - 48px);
           height: 504px;
           margin: 0 auto;
         }
