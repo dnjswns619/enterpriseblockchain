@@ -1054,14 +1054,14 @@ body.scrollNone {
   top: 0;
   left: 0;
   width: 100%;
-  height: var(--window-height, 100vh);
+  height: calc(var(--window-height, 100vh) * 1px);
   overflow-x: hidden;
 }
 .service__top--cont {
   display: flex;
   align-items: center;
   gap: 160px;
-  height: var(--window-height, 100vh);
+  height: calc(var(--window-height, 100vh) * 1px);
   padding-left: 100px;
 }
 .service__top--title {
